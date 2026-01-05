@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive maps showing sports team territories based on geographic proximity to venues. Visualize which teams would be most popular if every American rooted for the team whose venue is closest.">
+    <title>Sports Team Territory Maps</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem 0;
+        }
+        .container {
+            max-width: 1200px;
+        }
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+        .header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .sport-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        .sport-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        .sport-card h2 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        .sport-card .sport-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .sport-card .description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .btn-view-map {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 25px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .btn-view-map:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            color: white;
+        }
+        .sport-badge {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 3rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-map-marked-alt"></i> Sports Team Territory Maps</h1>
+            <p>Interactive maps showing which teams would be most popular if every American rooted for the team whose venue is closest</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-lg-4">
+                <div class="sport-card">
+                    <i class="fas fa-football-ball sport-icon" style="color: #013369;"></i>
+                    <h2>NFL</h2>
+                    <p class="description">
+                        National Football League territory map showing which NFL team each US county is closest to, 
+                        based on stadium proximity. Includes 32 teams with shared venues handled.
+                    </p>
+                    <span class="sport-badge">32 Teams</span>
+                    <div style="margin-top: 1rem;">
+                        <a href="maps/nfl_county_map.html" class="btn-view-map">
+                            <i class="fas fa-map"></i> View NFL Map
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="sport-card">
+                    <i class="fas fa-basketball-ball sport-icon" style="color: #C8102E;"></i>
+                    <h2>NBA</h2>
+                    <p class="description">
+                        National Basketball Association territory map showing which NBA team each US county is closest to, 
+                        based on arena proximity. Includes 30 teams (Canadian teams excluded from population calculations).
+                    </p>
+                    <span class="sport-badge">30 Teams</span>
+                    <div style="margin-top: 1rem;">
+                        <a href="maps/nba_county_map.html" class="btn-view-map">
+                            <i class="fas fa-map"></i> View NBA Map
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="sport-card">
+                    <i class="fas fa-baseball-ball sport-icon" style="color: #132448;"></i>
+                    <h2>MLB</h2>
+                    <p class="description">
+                        Major League Baseball territory map showing which MLB team each US county is closest to, 
+                        based on ballpark proximity. Includes 30 teams (Canadian teams excluded from population calculations).
+                    </p>
+                    <span class="sport-badge">30 Teams</span>
+                    <div style="margin-top: 1rem;">
+                        <a href="maps/mlb_county_map.html" class="btn-view-map">
+                            <i class="fas fa-map"></i> View MLB Map
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="sport-card">
+                    <i class="fas fa-hockey-puck sport-icon" style="color: #000000;"></i>
+                    <h2>NHL</h2>
+                    <p class="description">
+                        National Hockey League territory map showing which NHL team each US county is closest to, 
+                        based on arena proximity. Includes 32 teams (Canadian teams excluded from population calculations).
+                    </p>
+                    <span class="sport-badge">32 Teams</span>
+                    <div style="margin-top: 1rem;">
+                        <a href="maps/nhl_county_map.html" class="btn-view-map">
+                            <i class="fas fa-map"></i> View NHL Map
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="sport-card">
+                    <i class="fas fa-futbol sport-icon" style="color: #6CABDD;"></i>
+                    <h2>MLS</h2>
+                    <p class="description">
+                        Major League Soccer territory map showing which MLS team each US county is closest to, 
+                        based on stadium proximity. Includes 29 teams (Canadian teams excluded from population calculations).
+                    </p>
+                    <span class="sport-badge">29 Teams</span>
+                    <div style="margin-top: 1rem;">
+                        <a href="maps/mls_county_map.html" class="btn-view-map">
+                            <i class="fas fa-map"></i> View MLS Map
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Maps use actual 2024 county census data for accurate population calculations</p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;">
+                <i class="fas fa-info-circle"></i> Counties are colored by closest team venue. Shared venues divide population equally.
+            </p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
