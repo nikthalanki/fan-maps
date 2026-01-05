@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_30ec18b2909106f24fe8b3c4b044a616 {
+                #map_da25c23adf2ddd066d68137c98b783ee {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -54,18 +54,23 @@
 <body>
     
     
-    <div style="position: fixed; 
+    <div id="legend-container" style="position: fixed; 
                 bottom: 50px; right: 50px; width: 280px; max-height: 80vh; overflow-y: auto;
                 background-color: white; border:3px solid #333; z-index:9999; 
                 font-size:12px; padding: 15px; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
-    <h3 style="margin-top:0; margin-bottom:10px; color: #333;">NHL Teams (by population)</h3>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <h3 style="margin:0; color: #333;">NHL Teams (by population)</h3>
+        <button id="legend-close-btn" onclick="document.getElementById('legend-container').style.display='none'; document.getElementById('legend-toggle-btn').style.display='block';" 
+                style="background: #f0f0f0; border: 1px solid #ccc; border-radius: 3px; padding: 3px 8px; cursor: pointer; font-size: 14px; color: #333;" 
+                onmouseover="this.style.background='#e0e0e0';" onmouseout="this.style.background='#f0f0f0';" title="Close legend">×</button>
+    </div>
     <table style="width: 100%; border-collapse: collapse;">
     <tr style="background-color: #f0f0f0; font-weight: bold; border-bottom: 2px solid #333;">
         <td style="padding: 5px 0; text-align: center; width: 30px;">#</td>
         <td style="padding: 5px 0; width: 20px;"></td>
         <td style="padding: 5px 0;">Team</td>
-        <td style="padding: 5px 0; text-align: right; font-size: 10px;">Pop</td>
-        <td style="padding: 5px 0; text-align: right; font-size: 10px;">Counties</td>
+        <td style="padding: 5px 0; text-align: right; font-size: 10px; padding-right: 20px;">Pop</td>
+        <td style="padding: 5px 0; text-align: right; font-size: 10px; padding-left: 15px;">Counties</td>
     </tr>
     
         <tr style="border-bottom: 1px solid #eee;">
@@ -76,10 +81,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #006847; font-weight: bold;">Dallas Stars</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 41.3M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 440
             </td>
         </tr>
@@ -92,10 +97,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #ffb81c; font-weight: bold;">Nashville Predators</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 27.0M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 407
             </td>
         </tr>
@@ -108,10 +113,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #ff671b; font-weight: bold;">Chicago Blackhawks</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 22.2M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 138
             </td>
         </tr>
@@ -124,10 +129,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #e21836; font-weight: bold;">Carolina Hurricanes</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 18.8M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 219
             </td>
         </tr>
@@ -140,10 +145,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #002868; font-weight: bold;">Tampa Bay Lightning</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 17.9M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 126
             </td>
         </tr>
@@ -156,10 +161,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #006d75; font-weight: bold;">San Jose Sharks</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 17.8M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 67
             </td>
         </tr>
@@ -172,10 +177,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #c8102e; font-weight: bold;">Washington Capitals</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 14.5M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 110
             </td>
         </tr>
@@ -188,10 +193,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #001628; font-weight: bold;">Seattle Kraken</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 14.4M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 158
             </td>
         </tr>
@@ -204,10 +209,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #002f6c; font-weight: bold;">St. Louis Blues</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 13.2M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 285
             </td>
         </tr>
@@ -220,10 +225,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #111111; font-weight: bold;">Los Angeles Kings</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 12.7M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 6
             </td>
         </tr>
@@ -236,10 +241,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #024930; font-weight: bold;">Minnesota Wild</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 12.5M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 336
             </td>
         </tr>
@@ -252,10 +257,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #fcb514; font-weight: bold;">Boston Bruins</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 12.4M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 70
             </td>
         </tr>
@@ -268,10 +273,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #002654; font-weight: bold;">Columbus Blue Jackets</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 11.5M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 163
             </td>
         </tr>
@@ -284,10 +289,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #f74902; font-weight: bold;">Philadelphia Flyers</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 11.4M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 34
             </td>
         </tr>
@@ -300,10 +305,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #ce1126; font-weight: bold;">Detroit Red Wings</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 10.6M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 69
             </td>
         </tr>
@@ -316,10 +321,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #6f263d; font-weight: bold;">Colorado Avalanche</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 9.8M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 292
             </td>
         </tr>
@@ -332,10 +337,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #8c2633; font-weight: bold;">Arizona Coyotes</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 9.6M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 32
             </td>
         </tr>
@@ -348,10 +353,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #fc4c02; font-weight: bold;">Anaheim Ducks</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 9.2M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 4
             </td>
         </tr>
@@ -364,10 +369,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #0038a8; font-weight: bold;">New York Rangers</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 9.0M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 15
             </td>
         </tr>
@@ -380,10 +385,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #333f48; font-weight: bold;">Vegas Golden Knights</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 8.1M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 34
             </td>
         </tr>
@@ -396,10 +401,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #c8102e; font-weight: bold;">Florida Panthers</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 7.8M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 92
             </td>
         </tr>
@@ -412,10 +417,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #ce1126; font-weight: bold;">New Jersey Devils</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 6.9M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 26
             </td>
         </tr>
@@ -428,10 +433,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #000000; font-weight: bold;">Pittsburgh Penguins</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 6.4M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 67
             </td>
         </tr>
@@ -444,10 +449,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #00539b; font-weight: bold;">New York Islanders</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 6.3M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 10
             </td>
         </tr>
@@ -460,10 +465,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #002654; font-weight: bold;">Buffalo Sabres</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 4.7M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 35
             </td>
         </tr>
@@ -475,6 +480,9 @@
         Duo-color markers = shared venues
     </p>
     </div>
+    <button id="legend-toggle-btn" onclick="document.getElementById('legend-container').style.display='block'; this.style.display='none';" 
+            style="position: fixed; bottom: 50px; right: 50px; background: #333; color: white; border: none; border-radius: 5px; padding: 10px 15px; cursor: pointer; z-index:9998; font-size: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); display: none;" 
+            onmouseover="this.style.background='#555';" onmouseout="this.style.background='#333';" title="Show legend">Show Legend</button>
     
     
     <script>
@@ -754,14 +762,14 @@
     </script>
     
     
-            <div class="folium-map" id="map_30ec18b2909106f24fe8b3c4b044a616" ></div>
+            <div class="folium-map" id="map_da25c23adf2ddd066d68137c98b783ee" ></div>
         
 </body>
 <script>
     
     
-            var map_30ec18b2909106f24fe8b3c4b044a616 = L.map(
-                "map_30ec18b2909106f24fe8b3c4b044a616",
+            var map_da25c23adf2ddd066d68137c98b783ee = L.map(
+                "map_da25c23adf2ddd066d68137c98b783ee",
                 {
                     center: [39.8283, -98.5795],
                     crs: L.CRS.EPSG3857,
@@ -788,7 +796,7 @@
 
         
     
-            var tile_layer_ca0453208972410dcf95d563170758e7 = L.tileLayer(
+            var tile_layer_743d589b510b61a108276cffd23f8de4 = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 2,
@@ -805,17 +813,17 @@
             );
         
     
-            tile_layer_ca0453208972410dcf95d563170758e7.addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            tile_layer_743d589b510b61a108276cffd23f8de4.addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var marker_dfd800920bfe7d9ca940a0159a3f126b = L.marker(
+            var marker_7f9f6d3f7ebe2455185213efb6c0630a = L.marker(
                 [33.8078, -117.8767],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_3b03d934f83b3cabd0439ff25f4deaee = L.divIcon({
+            var div_icon_786d5140a07148ba0d6908b5f9e400c4 = L.divIcon({
   "html": "\n        \u003csvg width=\"20\" height=\"20\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"10\" cy=\"10\" r=\"8\" fill=\"#fc4c02\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/ANA.png\" x=\"3\" y=\"3\" width=\"14\" height=\"14\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [20, 20],
   "iconAnchor": [10, 10],
@@ -823,24 +831,24 @@
 });
         
     
-        var popup_5b5e9fe98e622fd3a5065c437b95ff37 = L.popup({
+        var popup_71dad8884709c1f33c6cf47364fe1713 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_e387f5477f936e64b7e1ce16ca1d7f4e = $(`<div id="html_e387f5477f936e64b7e1ce16ca1d7f4e" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #fc4c02;">Anaheim Ducks</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Honda Center</p>                 <p style="margin: 3px 0;"><b>Location:</b> Anaheim, CA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 9.18M</p>             </div>             </div>`)[0];
-                popup_5b5e9fe98e622fd3a5065c437b95ff37.setContent(html_e387f5477f936e64b7e1ce16ca1d7f4e);
+                var html_c7e768743be618787dc858bb4ca55a3e = $(`<div id="html_c7e768743be618787dc858bb4ca55a3e" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #fc4c02;">Anaheim Ducks</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Honda Center</p>                 <p style="margin: 3px 0;"><b>Location:</b> Anaheim, CA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 9.18M</p>             </div>             </div>`)[0];
+                popup_71dad8884709c1f33c6cf47364fe1713.setContent(html_c7e768743be618787dc858bb4ca55a3e);
             
         
 
-        marker_dfd800920bfe7d9ca940a0159a3f126b.bindPopup(popup_5b5e9fe98e622fd3a5065c437b95ff37)
+        marker_7f9f6d3f7ebe2455185213efb6c0630a.bindPopup(popup_71dad8884709c1f33c6cf47364fe1713)
         ;
 
         
     
     
-            marker_dfd800920bfe7d9ca940a0159a3f126b.bindTooltip(
+            marker_7f9f6d3f7ebe2455185213efb6c0630a.bindTooltip(
                 `<div>
                      Anaheim Ducks (9.18M)
                  </div>`,
@@ -850,17 +858,17 @@
             );
         
     
-                marker_dfd800920bfe7d9ca940a0159a3f126b.setIcon(div_icon_3b03d934f83b3cabd0439ff25f4deaee);
+                marker_7f9f6d3f7ebe2455185213efb6c0630a.setIcon(div_icon_786d5140a07148ba0d6908b5f9e400c4);
             
     
-            var marker_81b28de90a8c4e75cd9007dd34ff29ad = L.marker(
+            var marker_f1a8f403bd517d4043ef4af698d88f21 = L.marker(
                 [33.4219, -111.9331],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_fe813a2a94faad09d6390c2f3215822f = L.divIcon({
+            var div_icon_c1bd21b69f75c77b6a5b848175712522 = L.divIcon({
   "html": "\n        \u003csvg width=\"20\" height=\"20\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"10\" cy=\"10\" r=\"8\" fill=\"#8c2633\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/ARI.png\" x=\"3\" y=\"3\" width=\"14\" height=\"14\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [20, 20],
   "iconAnchor": [10, 10],
@@ -868,24 +876,24 @@
 });
         
     
-        var popup_55ee6877b4f1765d1c9af3b6c674d9e6 = L.popup({
+        var popup_edb996dfc4c03abe6f1f767e7a420f83 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_475072ebc0b83784c50486553c20ec59 = $(`<div id="html_475072ebc0b83784c50486553c20ec59" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #8c2633;">Arizona Coyotes</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Mullett Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Tempe, AZ</p>                 <p style="margin: 3px 0;"><b>Population:</b> 9.57M</p>             </div>             </div>`)[0];
-                popup_55ee6877b4f1765d1c9af3b6c674d9e6.setContent(html_475072ebc0b83784c50486553c20ec59);
+                var html_bbeb0f6bfb2d0fd6ab15664fe69320d3 = $(`<div id="html_bbeb0f6bfb2d0fd6ab15664fe69320d3" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #8c2633;">Arizona Coyotes</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Mullett Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Tempe, AZ</p>                 <p style="margin: 3px 0;"><b>Population:</b> 9.57M</p>             </div>             </div>`)[0];
+                popup_edb996dfc4c03abe6f1f767e7a420f83.setContent(html_bbeb0f6bfb2d0fd6ab15664fe69320d3);
             
         
 
-        marker_81b28de90a8c4e75cd9007dd34ff29ad.bindPopup(popup_55ee6877b4f1765d1c9af3b6c674d9e6)
+        marker_f1a8f403bd517d4043ef4af698d88f21.bindPopup(popup_edb996dfc4c03abe6f1f767e7a420f83)
         ;
 
         
     
     
-            marker_81b28de90a8c4e75cd9007dd34ff29ad.bindTooltip(
+            marker_f1a8f403bd517d4043ef4af698d88f21.bindTooltip(
                 `<div>
                      Arizona Coyotes (9.57M)
                  </div>`,
@@ -895,17 +903,17 @@
             );
         
     
-                marker_81b28de90a8c4e75cd9007dd34ff29ad.setIcon(div_icon_fe813a2a94faad09d6390c2f3215822f);
+                marker_f1a8f403bd517d4043ef4af698d88f21.setIcon(div_icon_c1bd21b69f75c77b6a5b848175712522);
             
     
-            var marker_06c04702050eedc7a6aeb99efeb466f4 = L.marker(
+            var marker_ad9531a2902bd1eb8a6caca16c6db835 = L.marker(
                 [42.3662, -71.0622],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_5f480ad732fb8fb897a1731e2a0d25e8 = L.divIcon({
+            var div_icon_cd05dc381060624da9b138f01cfc86ba = L.divIcon({
   "html": "\n        \u003csvg width=\"23\" height=\"23\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"11\" cy=\"11\" r=\"9\" fill=\"#fcb514\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/BOS.png\" x=\"3\" y=\"3\" width=\"16\" height=\"16\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [23, 23],
   "iconAnchor": [11, 11],
@@ -913,24 +921,24 @@
 });
         
     
-        var popup_640a5163543e9566749ccb7bd12c85f8 = L.popup({
+        var popup_8b29e88182f7fd0f8a62beebf7456e69 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_27239a3c557ebf9fe754412a3b3d22ec = $(`<div id="html_27239a3c557ebf9fe754412a3b3d22ec" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #fcb514;">Boston Bruins</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> TD Garden</p>                 <p style="margin: 3px 0;"><b>Location:</b> Boston, MA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 12.40M</p>             </div>             </div>`)[0];
-                popup_640a5163543e9566749ccb7bd12c85f8.setContent(html_27239a3c557ebf9fe754412a3b3d22ec);
+                var html_1271db46cb31e633729718f8c0837fe8 = $(`<div id="html_1271db46cb31e633729718f8c0837fe8" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #fcb514;">Boston Bruins</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> TD Garden</p>                 <p style="margin: 3px 0;"><b>Location:</b> Boston, MA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 12.40M</p>             </div>             </div>`)[0];
+                popup_8b29e88182f7fd0f8a62beebf7456e69.setContent(html_1271db46cb31e633729718f8c0837fe8);
             
         
 
-        marker_06c04702050eedc7a6aeb99efeb466f4.bindPopup(popup_640a5163543e9566749ccb7bd12c85f8)
+        marker_ad9531a2902bd1eb8a6caca16c6db835.bindPopup(popup_8b29e88182f7fd0f8a62beebf7456e69)
         ;
 
         
     
     
-            marker_06c04702050eedc7a6aeb99efeb466f4.bindTooltip(
+            marker_ad9531a2902bd1eb8a6caca16c6db835.bindTooltip(
                 `<div>
                      Boston Bruins (12.40M)
                  </div>`,
@@ -940,17 +948,17 @@
             );
         
     
-                marker_06c04702050eedc7a6aeb99efeb466f4.setIcon(div_icon_5f480ad732fb8fb897a1731e2a0d25e8);
+                marker_ad9531a2902bd1eb8a6caca16c6db835.setIcon(div_icon_cd05dc381060624da9b138f01cfc86ba);
             
     
-            var marker_dde6e75aed0688945652fb10f9b84a70 = L.marker(
+            var marker_f3c4af18fabadd749f00760a392ea499 = L.marker(
                 [42.875, -78.8764],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_83ea371d88d96ed47cc2f594e3fc9c39 = L.divIcon({
+            var div_icon_a91b3cc527310df58ea60a406cb569f5 = L.divIcon({
   "html": "\n        \u003csvg width=\"16\" height=\"16\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"8\" cy=\"8\" r=\"6\" fill=\"#002654\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/BUF.png\" x=\"2\" y=\"2\" width=\"11\" height=\"11\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [16, 16],
   "iconAnchor": [8, 8],
@@ -958,24 +966,24 @@
 });
         
     
-        var popup_e4080debad5b166f9fb3cfb674517dc7 = L.popup({
+        var popup_e00d91426c7f994a11a55cf8daea2382 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_7e1dea322a9e41637a5bdd6db049a087 = $(`<div id="html_7e1dea322a9e41637a5bdd6db049a087" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #002654;">Buffalo Sabres</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> KeyBank Center</p>                 <p style="margin: 3px 0;"><b>Location:</b> Buffalo, NY</p>                 <p style="margin: 3px 0;"><b>Population:</b> 4.66M</p>             </div>             </div>`)[0];
-                popup_e4080debad5b166f9fb3cfb674517dc7.setContent(html_7e1dea322a9e41637a5bdd6db049a087);
+                var html_5ce23a3a5cef19881838e96c0a030d09 = $(`<div id="html_5ce23a3a5cef19881838e96c0a030d09" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #002654;">Buffalo Sabres</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> KeyBank Center</p>                 <p style="margin: 3px 0;"><b>Location:</b> Buffalo, NY</p>                 <p style="margin: 3px 0;"><b>Population:</b> 4.66M</p>             </div>             </div>`)[0];
+                popup_e00d91426c7f994a11a55cf8daea2382.setContent(html_5ce23a3a5cef19881838e96c0a030d09);
             
         
 
-        marker_dde6e75aed0688945652fb10f9b84a70.bindPopup(popup_e4080debad5b166f9fb3cfb674517dc7)
+        marker_f3c4af18fabadd749f00760a392ea499.bindPopup(popup_e00d91426c7f994a11a55cf8daea2382)
         ;
 
         
     
     
-            marker_dde6e75aed0688945652fb10f9b84a70.bindTooltip(
+            marker_f3c4af18fabadd749f00760a392ea499.bindTooltip(
                 `<div>
                      Buffalo Sabres (4.66M)
                  </div>`,
@@ -985,17 +993,17 @@
             );
         
     
-                marker_dde6e75aed0688945652fb10f9b84a70.setIcon(div_icon_83ea371d88d96ed47cc2f594e3fc9c39);
+                marker_f3c4af18fabadd749f00760a392ea499.setIcon(div_icon_a91b3cc527310df58ea60a406cb569f5);
             
     
-            var marker_529e53137d67f0c98bd3b8e318985dba = L.marker(
+            var marker_96874349fe7016978b6d98c94b7f4fa3 = L.marker(
                 [51.0374, -114.0519],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_e2b968c5933be30d74dd9eb435e43be7 = L.divIcon({
+            var div_icon_4f88ab5496413d05322344dd26984c7f = L.divIcon({
   "html": "\n        \u003csvg width=\"16\" height=\"16\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"8\" cy=\"8\" r=\"6\" fill=\"#c8102e\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/CGY.png\" x=\"2\" y=\"2\" width=\"11\" height=\"11\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [16, 16],
   "iconAnchor": [8, 8],
@@ -1003,24 +1011,24 @@
 });
         
     
-        var popup_35637edc42cc851086eb7389731a5315 = L.popup({
+        var popup_6f72480b7d3dfd54f5a1f84784354f7e = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_5fd0c119b9cbc252e21c09c686cf4461 = $(`<div id="html_5fd0c119b9cbc252e21c09c686cf4461" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #c8102e;">Calgary Flames</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Scotiabank Saddledome</p>                 <p style="margin: 3px 0;"><b>Location:</b> Calgary, AB</p>             </div>             </div>`)[0];
-                popup_35637edc42cc851086eb7389731a5315.setContent(html_5fd0c119b9cbc252e21c09c686cf4461);
+                var html_72ad6870c61c6ec26e9e19828eabe3ac = $(`<div id="html_72ad6870c61c6ec26e9e19828eabe3ac" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #c8102e;">Calgary Flames</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Scotiabank Saddledome</p>                 <p style="margin: 3px 0;"><b>Location:</b> Calgary, AB</p>             </div>             </div>`)[0];
+                popup_6f72480b7d3dfd54f5a1f84784354f7e.setContent(html_72ad6870c61c6ec26e9e19828eabe3ac);
             
         
 
-        marker_529e53137d67f0c98bd3b8e318985dba.bindPopup(popup_35637edc42cc851086eb7389731a5315)
+        marker_96874349fe7016978b6d98c94b7f4fa3.bindPopup(popup_6f72480b7d3dfd54f5a1f84784354f7e)
         ;
 
         
     
     
-            marker_529e53137d67f0c98bd3b8e318985dba.bindTooltip(
+            marker_96874349fe7016978b6d98c94b7f4fa3.bindTooltip(
                 `<div>
                      Calgary Flames
                  </div>`,
@@ -1030,17 +1038,17 @@
             );
         
     
-                marker_529e53137d67f0c98bd3b8e318985dba.setIcon(div_icon_e2b968c5933be30d74dd9eb435e43be7);
+                marker_96874349fe7016978b6d98c94b7f4fa3.setIcon(div_icon_4f88ab5496413d05322344dd26984c7f);
             
     
-            var marker_c72f3247c89b780dc099f44108f472ac = L.marker(
+            var marker_c3f50b2ccf8da6a994d94a68d2f6da5a = L.marker(
                 [35.8033, -78.7219],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_e184888a3eaff742d5beca3ca27d75a9 = L.divIcon({
+            var div_icon_8a7fc74ec06f477f016899eb27113ff9 = L.divIcon({
   "html": "\n        \u003csvg width=\"29\" height=\"29\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"14\" cy=\"14\" r=\"12\" fill=\"#e21836\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/CAR.png\" x=\"4\" y=\"4\" width=\"20\" height=\"20\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [29, 29],
   "iconAnchor": [14, 14],
@@ -1048,24 +1056,24 @@
 });
         
     
-        var popup_059d3f6f64cc3f794de1096a4422a414 = L.popup({
+        var popup_b4528a53376a3e870454a7195b046f0d = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_9f0d29236df057d351684ca8837f3dd0 = $(`<div id="html_9f0d29236df057d351684ca8837f3dd0" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #e21836;">Carolina Hurricanes</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> PNC Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Raleigh, NC</p>                 <p style="margin: 3px 0;"><b>Population:</b> 18.80M</p>             </div>             </div>`)[0];
-                popup_059d3f6f64cc3f794de1096a4422a414.setContent(html_9f0d29236df057d351684ca8837f3dd0);
+                var html_afaf973b8ed73d34b70ed76d92f707e3 = $(`<div id="html_afaf973b8ed73d34b70ed76d92f707e3" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #e21836;">Carolina Hurricanes</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> PNC Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Raleigh, NC</p>                 <p style="margin: 3px 0;"><b>Population:</b> 18.80M</p>             </div>             </div>`)[0];
+                popup_b4528a53376a3e870454a7195b046f0d.setContent(html_afaf973b8ed73d34b70ed76d92f707e3);
             
         
 
-        marker_c72f3247c89b780dc099f44108f472ac.bindPopup(popup_059d3f6f64cc3f794de1096a4422a414)
+        marker_c3f50b2ccf8da6a994d94a68d2f6da5a.bindPopup(popup_b4528a53376a3e870454a7195b046f0d)
         ;
 
         
     
     
-            marker_c72f3247c89b780dc099f44108f472ac.bindTooltip(
+            marker_c3f50b2ccf8da6a994d94a68d2f6da5a.bindTooltip(
                 `<div>
                      Carolina Hurricanes (18.80M)
                  </div>`,
@@ -1075,17 +1083,17 @@
             );
         
     
-                marker_c72f3247c89b780dc099f44108f472ac.setIcon(div_icon_e184888a3eaff742d5beca3ca27d75a9);
+                marker_c3f50b2ccf8da6a994d94a68d2f6da5a.setIcon(div_icon_8a7fc74ec06f477f016899eb27113ff9);
             
     
-            var marker_ea0806e7a394ab8be0a137de06121539 = L.marker(
+            var marker_3738584860cfde2958c16fb323646bfb = L.marker(
                 [41.8806, -87.6742],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_f45281bcb611719e233931451c605fe3 = L.divIcon({
+            var div_icon_7db568933530eaa981351169720c08cc = L.divIcon({
   "html": "\n        \u003csvg width=\"32\" height=\"32\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"16\" cy=\"16\" r=\"14\" fill=\"#ff671b\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/CHI.png\" x=\"5\" y=\"5\" width=\"22\" height=\"22\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [32, 32],
   "iconAnchor": [16, 16],
@@ -1093,24 +1101,24 @@
 });
         
     
-        var popup_10e3451360393c737f24eb6bc4c77cbe = L.popup({
+        var popup_7f61c0b9d52872b3749743f3d7dfedc8 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_df14a4ce73b03fd90b06eef637721e15 = $(`<div id="html_df14a4ce73b03fd90b06eef637721e15" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #ff671b;">Chicago Blackhawks</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> United Center</p>                 <p style="margin: 3px 0;"><b>Location:</b> Chicago, IL</p>                 <p style="margin: 3px 0;"><b>Population:</b> 22.21M</p>             </div>             </div>`)[0];
-                popup_10e3451360393c737f24eb6bc4c77cbe.setContent(html_df14a4ce73b03fd90b06eef637721e15);
+                var html_cbe883e76147b1dfced244d242ec6a5d = $(`<div id="html_cbe883e76147b1dfced244d242ec6a5d" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #ff671b;">Chicago Blackhawks</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> United Center</p>                 <p style="margin: 3px 0;"><b>Location:</b> Chicago, IL</p>                 <p style="margin: 3px 0;"><b>Population:</b> 22.21M</p>             </div>             </div>`)[0];
+                popup_7f61c0b9d52872b3749743f3d7dfedc8.setContent(html_cbe883e76147b1dfced244d242ec6a5d);
             
         
 
-        marker_ea0806e7a394ab8be0a137de06121539.bindPopup(popup_10e3451360393c737f24eb6bc4c77cbe)
+        marker_3738584860cfde2958c16fb323646bfb.bindPopup(popup_7f61c0b9d52872b3749743f3d7dfedc8)
         ;
 
         
     
     
-            marker_ea0806e7a394ab8be0a137de06121539.bindTooltip(
+            marker_3738584860cfde2958c16fb323646bfb.bindTooltip(
                 `<div>
                      Chicago Blackhawks (22.21M)
                  </div>`,
@@ -1120,17 +1128,17 @@
             );
         
     
-                marker_ea0806e7a394ab8be0a137de06121539.setIcon(div_icon_f45281bcb611719e233931451c605fe3);
+                marker_3738584860cfde2958c16fb323646bfb.setIcon(div_icon_7db568933530eaa981351169720c08cc);
             
     
-            var marker_4077fbab688756d9f19dc6737ffecab8 = L.marker(
+            var marker_7914efbe895c4ac26d27fe3bcc89212b = L.marker(
                 [39.7486, -105.0075],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_e0f8264b4fbf818d0421efff0735c88e = L.divIcon({
+            var div_icon_6efba7b8a4072ceb901e20d573e51c4c = L.divIcon({
   "html": "\n        \u003csvg width=\"20\" height=\"20\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"10\" cy=\"10\" r=\"8\" fill=\"#6f263d\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/COL.png\" x=\"3\" y=\"3\" width=\"14\" height=\"14\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [20, 20],
   "iconAnchor": [10, 10],
@@ -1138,24 +1146,24 @@
 });
         
     
-        var popup_b2c944b12dc685f44296dc6a1d0ea75c = L.popup({
+        var popup_85643c582f8d647741e9df24cbf547d3 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_d75e302a28c0f554b892a07154e51b7e = $(`<div id="html_d75e302a28c0f554b892a07154e51b7e" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #6f263d;">Colorado Avalanche</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Ball Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Denver, CO</p>                 <p style="margin: 3px 0;"><b>Population:</b> 9.85M</p>             </div>             </div>`)[0];
-                popup_b2c944b12dc685f44296dc6a1d0ea75c.setContent(html_d75e302a28c0f554b892a07154e51b7e);
+                var html_be54b464820943edfd6708b2e4d7ee76 = $(`<div id="html_be54b464820943edfd6708b2e4d7ee76" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #6f263d;">Colorado Avalanche</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Ball Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Denver, CO</p>                 <p style="margin: 3px 0;"><b>Population:</b> 9.85M</p>             </div>             </div>`)[0];
+                popup_85643c582f8d647741e9df24cbf547d3.setContent(html_be54b464820943edfd6708b2e4d7ee76);
             
         
 
-        marker_4077fbab688756d9f19dc6737ffecab8.bindPopup(popup_b2c944b12dc685f44296dc6a1d0ea75c)
+        marker_7914efbe895c4ac26d27fe3bcc89212b.bindPopup(popup_85643c582f8d647741e9df24cbf547d3)
         ;
 
         
     
     
-            marker_4077fbab688756d9f19dc6737ffecab8.bindTooltip(
+            marker_7914efbe895c4ac26d27fe3bcc89212b.bindTooltip(
                 `<div>
                      Colorado Avalanche (9.85M)
                  </div>`,
@@ -1165,17 +1173,17 @@
             );
         
     
-                marker_4077fbab688756d9f19dc6737ffecab8.setIcon(div_icon_e0f8264b4fbf818d0421efff0735c88e);
+                marker_7914efbe895c4ac26d27fe3bcc89212b.setIcon(div_icon_6efba7b8a4072ceb901e20d573e51c4c);
             
     
-            var marker_fb67620a6e62052983f4abbcfc6f2ddd = L.marker(
+            var marker_c06b6024df24d88da67f9ac2eec2a51f = L.marker(
                 [39.9692, -83.0061],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_d7b35d086bb21e81de785298cf2150ca = L.divIcon({
+            var div_icon_1eaa20a548624e27ea20d82983827d7c = L.divIcon({
   "html": "\n        \u003csvg width=\"22\" height=\"22\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"11\" cy=\"11\" r=\"9\" fill=\"#002654\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/CBJ.png\" x=\"3\" y=\"3\" width=\"15\" height=\"15\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [22, 22],
   "iconAnchor": [11, 11],
@@ -1183,24 +1191,24 @@
 });
         
     
-        var popup_fb36ba26942120e28a5076ee61c03a30 = L.popup({
+        var popup_1dbf7871a44aae154f7fbf44a228d0ef = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_985960067836064cecfa3dc8dcb1166b = $(`<div id="html_985960067836064cecfa3dc8dcb1166b" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #002654;">Columbus Blue Jackets</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Nationwide Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Columbus, OH</p>                 <p style="margin: 3px 0;"><b>Population:</b> 11.55M</p>             </div>             </div>`)[0];
-                popup_fb36ba26942120e28a5076ee61c03a30.setContent(html_985960067836064cecfa3dc8dcb1166b);
+                var html_139265d66c561fdb33b3d768d863a424 = $(`<div id="html_139265d66c561fdb33b3d768d863a424" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #002654;">Columbus Blue Jackets</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Nationwide Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Columbus, OH</p>                 <p style="margin: 3px 0;"><b>Population:</b> 11.55M</p>             </div>             </div>`)[0];
+                popup_1dbf7871a44aae154f7fbf44a228d0ef.setContent(html_139265d66c561fdb33b3d768d863a424);
             
         
 
-        marker_fb67620a6e62052983f4abbcfc6f2ddd.bindPopup(popup_fb36ba26942120e28a5076ee61c03a30)
+        marker_c06b6024df24d88da67f9ac2eec2a51f.bindPopup(popup_1dbf7871a44aae154f7fbf44a228d0ef)
         ;
 
         
     
     
-            marker_fb67620a6e62052983f4abbcfc6f2ddd.bindTooltip(
+            marker_c06b6024df24d88da67f9ac2eec2a51f.bindTooltip(
                 `<div>
                      Columbus Blue Jackets (11.55M)
                  </div>`,
@@ -1210,17 +1218,17 @@
             );
         
     
-                marker_fb67620a6e62052983f4abbcfc6f2ddd.setIcon(div_icon_d7b35d086bb21e81de785298cf2150ca);
+                marker_c06b6024df24d88da67f9ac2eec2a51f.setIcon(div_icon_1eaa20a548624e27ea20d82983827d7c);
             
     
-            var marker_32563d827670f2a8a50ce6be80d52471 = L.marker(
+            var marker_1bd2a6f54303172e3297230448c109c4 = L.marker(
                 [32.7903, -96.8103],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_7e0e58bdb546feaec4d978c5fdfcb69b = L.divIcon({
+            var div_icon_6eee3bb2efeb4a273fd9ce81d7fdcbf2 = L.divIcon({
   "html": "\n        \u003csvg width=\"50\" height=\"50\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"25\" cy=\"25\" r=\"23\" fill=\"#006847\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/DAL.png\" x=\"7\" y=\"7\" width=\"35\" height=\"35\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [50, 50],
   "iconAnchor": [25, 25],
@@ -1228,24 +1236,24 @@
 });
         
     
-        var popup_d555f790a63954b0b530e4839d97cc51 = L.popup({
+        var popup_2e6732def39753102facea53d5331b87 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_f199b6c1ba77c4f9a2a231a1c08d0e5d = $(`<div id="html_f199b6c1ba77c4f9a2a231a1c08d0e5d" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #006847;">Dallas Stars</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> American Airlines Center</p>                 <p style="margin: 3px 0;"><b>Location:</b> Dallas, TX</p>                 <p style="margin: 3px 0;"><b>Population:</b> 41.30M</p>             </div>             </div>`)[0];
-                popup_d555f790a63954b0b530e4839d97cc51.setContent(html_f199b6c1ba77c4f9a2a231a1c08d0e5d);
+                var html_11d3a029550d7adaba097ce368f06bf5 = $(`<div id="html_11d3a029550d7adaba097ce368f06bf5" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #006847;">Dallas Stars</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> American Airlines Center</p>                 <p style="margin: 3px 0;"><b>Location:</b> Dallas, TX</p>                 <p style="margin: 3px 0;"><b>Population:</b> 41.30M</p>             </div>             </div>`)[0];
+                popup_2e6732def39753102facea53d5331b87.setContent(html_11d3a029550d7adaba097ce368f06bf5);
             
         
 
-        marker_32563d827670f2a8a50ce6be80d52471.bindPopup(popup_d555f790a63954b0b530e4839d97cc51)
+        marker_1bd2a6f54303172e3297230448c109c4.bindPopup(popup_2e6732def39753102facea53d5331b87)
         ;
 
         
     
     
-            marker_32563d827670f2a8a50ce6be80d52471.bindTooltip(
+            marker_1bd2a6f54303172e3297230448c109c4.bindTooltip(
                 `<div>
                      Dallas Stars (41.30M)
                  </div>`,
@@ -1255,17 +1263,17 @@
             );
         
     
-                marker_32563d827670f2a8a50ce6be80d52471.setIcon(div_icon_7e0e58bdb546feaec4d978c5fdfcb69b);
+                marker_1bd2a6f54303172e3297230448c109c4.setIcon(div_icon_6eee3bb2efeb4a273fd9ce81d7fdcbf2);
             
     
-            var marker_b7f9e91ba7c9050a47d782c5327bc3c9 = L.marker(
+            var marker_d78f63c5e830a336c658499d91aa88f7 = L.marker(
                 [42.3411, -83.0553],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_1de7345d49557b17982f2f3d347fc0c9 = L.divIcon({
+            var div_icon_a7e3ab7e481498e3a8451ed7a3f09e8c = L.divIcon({
   "html": "\n        \u003csvg width=\"21\" height=\"21\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"10\" cy=\"10\" r=\"8\" fill=\"#ce1126\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/DET.png\" x=\"3\" y=\"3\" width=\"14\" height=\"14\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [21, 21],
   "iconAnchor": [10, 10],
@@ -1273,24 +1281,24 @@
 });
         
     
-        var popup_7e993c99c094a9b286df1c2da6241c6b = L.popup({
+        var popup_cb621a532a27f05a2070331d856d5dfb = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_73b7eb5cad39b478c9f11dc56f6d6c71 = $(`<div id="html_73b7eb5cad39b478c9f11dc56f6d6c71" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #ce1126;">Detroit Red Wings</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Little Caesars Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Detroit, MI</p>                 <p style="margin: 3px 0;"><b>Population:</b> 10.57M</p>             </div>             </div>`)[0];
-                popup_7e993c99c094a9b286df1c2da6241c6b.setContent(html_73b7eb5cad39b478c9f11dc56f6d6c71);
+                var html_71cc7fa71195694247f5497805f8c4f3 = $(`<div id="html_71cc7fa71195694247f5497805f8c4f3" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #ce1126;">Detroit Red Wings</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Little Caesars Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Detroit, MI</p>                 <p style="margin: 3px 0;"><b>Population:</b> 10.57M</p>             </div>             </div>`)[0];
+                popup_cb621a532a27f05a2070331d856d5dfb.setContent(html_71cc7fa71195694247f5497805f8c4f3);
             
         
 
-        marker_b7f9e91ba7c9050a47d782c5327bc3c9.bindPopup(popup_7e993c99c094a9b286df1c2da6241c6b)
+        marker_d78f63c5e830a336c658499d91aa88f7.bindPopup(popup_cb621a532a27f05a2070331d856d5dfb)
         ;
 
         
     
     
-            marker_b7f9e91ba7c9050a47d782c5327bc3c9.bindTooltip(
+            marker_d78f63c5e830a336c658499d91aa88f7.bindTooltip(
                 `<div>
                      Detroit Red Wings (10.57M)
                  </div>`,
@@ -1300,17 +1308,17 @@
             );
         
     
-                marker_b7f9e91ba7c9050a47d782c5327bc3c9.setIcon(div_icon_1de7345d49557b17982f2f3d347fc0c9);
+                marker_d78f63c5e830a336c658499d91aa88f7.setIcon(div_icon_a7e3ab7e481498e3a8451ed7a3f09e8c);
             
     
-            var marker_e0ede1dbbb9814dc76413c00242af37c = L.marker(
+            var marker_97d9b277e3da34362a700b21ceff8d4f = L.marker(
                 [53.5469, -113.4978],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_edf2f7b01285219d4ea0635b92326c02 = L.divIcon({
+            var div_icon_6278b61673201e3cdd03243d4a2b307c = L.divIcon({
   "html": "\n        \u003csvg width=\"16\" height=\"16\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"8\" cy=\"8\" r=\"6\" fill=\"#041e42\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/EDM.png\" x=\"2\" y=\"2\" width=\"11\" height=\"11\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [16, 16],
   "iconAnchor": [8, 8],
@@ -1318,24 +1326,24 @@
 });
         
     
-        var popup_22d7f286fe9a90da636e7dda40c20c16 = L.popup({
+        var popup_2f961c37886cf211aabb2cdcebce0160 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_176492bfc7ad2609e227f26f58a679fd = $(`<div id="html_176492bfc7ad2609e227f26f58a679fd" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #041e42;">Edmonton Oilers</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Rogers Place</p>                 <p style="margin: 3px 0;"><b>Location:</b> Edmonton, AB</p>             </div>             </div>`)[0];
-                popup_22d7f286fe9a90da636e7dda40c20c16.setContent(html_176492bfc7ad2609e227f26f58a679fd);
+                var html_0c70d40172bb4f571ed04f83eea3ea13 = $(`<div id="html_0c70d40172bb4f571ed04f83eea3ea13" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #041e42;">Edmonton Oilers</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Rogers Place</p>                 <p style="margin: 3px 0;"><b>Location:</b> Edmonton, AB</p>             </div>             </div>`)[0];
+                popup_2f961c37886cf211aabb2cdcebce0160.setContent(html_0c70d40172bb4f571ed04f83eea3ea13);
             
         
 
-        marker_e0ede1dbbb9814dc76413c00242af37c.bindPopup(popup_22d7f286fe9a90da636e7dda40c20c16)
+        marker_97d9b277e3da34362a700b21ceff8d4f.bindPopup(popup_2f961c37886cf211aabb2cdcebce0160)
         ;
 
         
     
     
-            marker_e0ede1dbbb9814dc76413c00242af37c.bindTooltip(
+            marker_97d9b277e3da34362a700b21ceff8d4f.bindTooltip(
                 `<div>
                      Edmonton Oilers
                  </div>`,
@@ -1345,17 +1353,17 @@
             );
         
     
-                marker_e0ede1dbbb9814dc76413c00242af37c.setIcon(div_icon_edf2f7b01285219d4ea0635b92326c02);
+                marker_97d9b277e3da34362a700b21ceff8d4f.setIcon(div_icon_6278b61673201e3cdd03243d4a2b307c);
             
     
-            var marker_7aecd3ebb4d1b37350db49c188aba69e = L.marker(
+            var marker_392d05ff24077aa81bc489fd6c1c227c = L.marker(
                 [26.1583, -80.3256],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_b68e8a65a9d67d05f70738fe636c680b = L.divIcon({
+            var div_icon_6c49c8691b3b6ca5a668ea092eaa605b = L.divIcon({
   "html": "\n        \u003csvg width=\"18\" height=\"18\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"9\" cy=\"9\" r=\"7\" fill=\"#c8102e\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/FLA.png\" x=\"3\" y=\"3\" width=\"12\" height=\"12\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [18, 18],
   "iconAnchor": [9, 9],
@@ -1363,24 +1371,24 @@
 });
         
     
-        var popup_b1db310dad163daf7de9f3ea3533b8f9 = L.popup({
+        var popup_432ff1e3f0f15c4588ed462674cf06f1 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_7d8f79a5751eb488add107a29543809d = $(`<div id="html_7d8f79a5751eb488add107a29543809d" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #c8102e;">Florida Panthers</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Amerant Bank Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Sunrise, FL</p>                 <p style="margin: 3px 0;"><b>Population:</b> 7.79M</p>             </div>             </div>`)[0];
-                popup_b1db310dad163daf7de9f3ea3533b8f9.setContent(html_7d8f79a5751eb488add107a29543809d);
+                var html_04dd30e7867395c5ec934b36ead4d946 = $(`<div id="html_04dd30e7867395c5ec934b36ead4d946" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #c8102e;">Florida Panthers</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Amerant Bank Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Sunrise, FL</p>                 <p style="margin: 3px 0;"><b>Population:</b> 7.79M</p>             </div>             </div>`)[0];
+                popup_432ff1e3f0f15c4588ed462674cf06f1.setContent(html_04dd30e7867395c5ec934b36ead4d946);
             
         
 
-        marker_7aecd3ebb4d1b37350db49c188aba69e.bindPopup(popup_b1db310dad163daf7de9f3ea3533b8f9)
+        marker_392d05ff24077aa81bc489fd6c1c227c.bindPopup(popup_432ff1e3f0f15c4588ed462674cf06f1)
         ;
 
         
     
     
-            marker_7aecd3ebb4d1b37350db49c188aba69e.bindTooltip(
+            marker_392d05ff24077aa81bc489fd6c1c227c.bindTooltip(
                 `<div>
                      Florida Panthers (7.79M)
                  </div>`,
@@ -1390,17 +1398,17 @@
             );
         
     
-                marker_7aecd3ebb4d1b37350db49c188aba69e.setIcon(div_icon_b68e8a65a9d67d05f70738fe636c680b);
+                marker_392d05ff24077aa81bc489fd6c1c227c.setIcon(div_icon_6c49c8691b3b6ca5a668ea092eaa605b);
             
     
-            var marker_1072843f3cd1065829f247777b6bf627 = L.marker(
+            var marker_1f94f121e627366f81a2d6f7cedb9af5 = L.marker(
                 [34.043, -118.2673],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_7d91f9eb917d6f3f6544c2ef4a5bbb78 = L.divIcon({
+            var div_icon_520977963bc8acaa8367ee8b7a38d5f1 = L.divIcon({
   "html": "\n        \u003csvg width=\"23\" height=\"23\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"11\" cy=\"11\" r=\"9\" fill=\"#111111\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/LA.png\" x=\"3\" y=\"3\" width=\"16\" height=\"16\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [23, 23],
   "iconAnchor": [11, 11],
@@ -1408,24 +1416,24 @@
 });
         
     
-        var popup_66c146fa92b8dea27e3eff96742129d1 = L.popup({
+        var popup_1d41f767c725f9108b5d9f9ba0675555 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_76073d9366f29c57d9f96d94f35dfe18 = $(`<div id="html_76073d9366f29c57d9f96d94f35dfe18" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #111111;">Los Angeles Kings</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Crypto.com Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Los Angeles, CA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 12.73M</p>             </div>             </div>`)[0];
-                popup_66c146fa92b8dea27e3eff96742129d1.setContent(html_76073d9366f29c57d9f96d94f35dfe18);
+                var html_4f83d8b60505bbdd2e45364552a6fcc0 = $(`<div id="html_4f83d8b60505bbdd2e45364552a6fcc0" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #111111;">Los Angeles Kings</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Crypto.com Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Los Angeles, CA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 12.73M</p>             </div>             </div>`)[0];
+                popup_1d41f767c725f9108b5d9f9ba0675555.setContent(html_4f83d8b60505bbdd2e45364552a6fcc0);
             
         
 
-        marker_1072843f3cd1065829f247777b6bf627.bindPopup(popup_66c146fa92b8dea27e3eff96742129d1)
+        marker_1f94f121e627366f81a2d6f7cedb9af5.bindPopup(popup_1d41f767c725f9108b5d9f9ba0675555)
         ;
 
         
     
     
-            marker_1072843f3cd1065829f247777b6bf627.bindTooltip(
+            marker_1f94f121e627366f81a2d6f7cedb9af5.bindTooltip(
                 `<div>
                      Los Angeles Kings (12.73M)
                  </div>`,
@@ -1435,17 +1443,17 @@
             );
         
     
-                marker_1072843f3cd1065829f247777b6bf627.setIcon(div_icon_7d91f9eb917d6f3f6544c2ef4a5bbb78);
+                marker_1f94f121e627366f81a2d6f7cedb9af5.setIcon(div_icon_520977963bc8acaa8367ee8b7a38d5f1);
             
     
-            var marker_2a19a6c4605e562647ac5cfc3c13f824 = L.marker(
+            var marker_f33694a4d2c46dbae43c12da6e6d3b1d = L.marker(
                 [44.9447, -93.1011],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_f8289707842f3fc629a1715adf52ffc7 = L.divIcon({
+            var div_icon_784d402495bb9bbc89282d453922faa6 = L.divIcon({
   "html": "\n        \u003csvg width=\"23\" height=\"23\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"11\" cy=\"11\" r=\"9\" fill=\"#024930\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/MIN.png\" x=\"3\" y=\"3\" width=\"16\" height=\"16\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [23, 23],
   "iconAnchor": [11, 11],
@@ -1453,24 +1461,24 @@
 });
         
     
-        var popup_ab29706d059374a4c20f6066a0e2d602 = L.popup({
+        var popup_de6c141b68354b403968a54fec6acbaa = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_0e4c99c847e4eb2f1a1fef68e177e021 = $(`<div id="html_0e4c99c847e4eb2f1a1fef68e177e021" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #024930;">Minnesota Wild</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Xcel Energy Center</p>                 <p style="margin: 3px 0;"><b>Location:</b> St. Paul, MN</p>                 <p style="margin: 3px 0;"><b>Population:</b> 12.50M</p>             </div>             </div>`)[0];
-                popup_ab29706d059374a4c20f6066a0e2d602.setContent(html_0e4c99c847e4eb2f1a1fef68e177e021);
+                var html_dc4863ec1ff1eec9160a587380981eef = $(`<div id="html_dc4863ec1ff1eec9160a587380981eef" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #024930;">Minnesota Wild</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Xcel Energy Center</p>                 <p style="margin: 3px 0;"><b>Location:</b> St. Paul, MN</p>                 <p style="margin: 3px 0;"><b>Population:</b> 12.50M</p>             </div>             </div>`)[0];
+                popup_de6c141b68354b403968a54fec6acbaa.setContent(html_dc4863ec1ff1eec9160a587380981eef);
             
         
 
-        marker_2a19a6c4605e562647ac5cfc3c13f824.bindPopup(popup_ab29706d059374a4c20f6066a0e2d602)
+        marker_f33694a4d2c46dbae43c12da6e6d3b1d.bindPopup(popup_de6c141b68354b403968a54fec6acbaa)
         ;
 
         
     
     
-            marker_2a19a6c4605e562647ac5cfc3c13f824.bindTooltip(
+            marker_f33694a4d2c46dbae43c12da6e6d3b1d.bindTooltip(
                 `<div>
                      Minnesota Wild (12.50M)
                  </div>`,
@@ -1480,17 +1488,17 @@
             );
         
     
-                marker_2a19a6c4605e562647ac5cfc3c13f824.setIcon(div_icon_f8289707842f3fc629a1715adf52ffc7);
+                marker_f33694a4d2c46dbae43c12da6e6d3b1d.setIcon(div_icon_784d402495bb9bbc89282d453922faa6);
             
     
-            var marker_7494a7324af4b2e34dbc182f3a9de313 = L.marker(
+            var marker_864add35c64b7f3ffcab2d3e6e45edc7 = L.marker(
                 [45.4961, -73.5694],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_e5a7c5e0cc99534d93340d85d11b7eec = L.divIcon({
+            var div_icon_f0cc8c656d037cd5082dca32a2c4c062 = L.divIcon({
   "html": "\n        \u003csvg width=\"16\" height=\"16\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"8\" cy=\"8\" r=\"6\" fill=\"#af1e2d\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/MTL.png\" x=\"2\" y=\"2\" width=\"11\" height=\"11\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [16, 16],
   "iconAnchor": [8, 8],
@@ -1498,24 +1506,24 @@
 });
         
     
-        var popup_711ab122dc278c3ca6ad1d18d1f0bf61 = L.popup({
+        var popup_2bf1c893511211ecad274e6196112154 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_dfd3d4c3a8cc835389fa9994c35dd4a0 = $(`<div id="html_dfd3d4c3a8cc835389fa9994c35dd4a0" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #af1e2d;">Montreal Canadiens</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Bell Centre</p>                 <p style="margin: 3px 0;"><b>Location:</b> Montreal, QC</p>             </div>             </div>`)[0];
-                popup_711ab122dc278c3ca6ad1d18d1f0bf61.setContent(html_dfd3d4c3a8cc835389fa9994c35dd4a0);
+                var html_a78e7d386f771837d98733a14356b842 = $(`<div id="html_a78e7d386f771837d98733a14356b842" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #af1e2d;">Montreal Canadiens</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Bell Centre</p>                 <p style="margin: 3px 0;"><b>Location:</b> Montreal, QC</p>             </div>             </div>`)[0];
+                popup_2bf1c893511211ecad274e6196112154.setContent(html_a78e7d386f771837d98733a14356b842);
             
         
 
-        marker_7494a7324af4b2e34dbc182f3a9de313.bindPopup(popup_711ab122dc278c3ca6ad1d18d1f0bf61)
+        marker_864add35c64b7f3ffcab2d3e6e45edc7.bindPopup(popup_2bf1c893511211ecad274e6196112154)
         ;
 
         
     
     
-            marker_7494a7324af4b2e34dbc182f3a9de313.bindTooltip(
+            marker_864add35c64b7f3ffcab2d3e6e45edc7.bindTooltip(
                 `<div>
                      Montreal Canadiens
                  </div>`,
@@ -1525,17 +1533,17 @@
             );
         
     
-                marker_7494a7324af4b2e34dbc182f3a9de313.setIcon(div_icon_e5a7c5e0cc99534d93340d85d11b7eec);
+                marker_864add35c64b7f3ffcab2d3e6e45edc7.setIcon(div_icon_f0cc8c656d037cd5082dca32a2c4c062);
             
     
-            var marker_616bd7ec9482c0d489e49cde7d5348e4 = L.marker(
+            var marker_6e4c6ccf8927bf74a7bf6f09c9cdfd57 = L.marker(
                 [36.1592, -86.7781],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_28544df5977ac78cc6341646fc2dedc4 = L.divIcon({
+            var div_icon_ffebc6c8dd8c65625b12f5a331377477 = L.divIcon({
   "html": "\n        \u003csvg width=\"36\" height=\"36\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"18\" cy=\"18\" r=\"16\" fill=\"#ffb81c\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/NSH.png\" x=\"5\" y=\"5\" width=\"25\" height=\"25\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [36, 36],
   "iconAnchor": [18, 18],
@@ -1543,24 +1551,24 @@
 });
         
     
-        var popup_ccf018dc78cec15df520d068f743d65b = L.popup({
+        var popup_f94db744a15c03127efc8139771471f0 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_5c570088c484de6adaf1278d5493e8d7 = $(`<div id="html_5c570088c484de6adaf1278d5493e8d7" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #ffb81c;">Nashville Predators</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Bridgestone Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Nashville, TN</p>                 <p style="margin: 3px 0;"><b>Population:</b> 26.98M</p>             </div>             </div>`)[0];
-                popup_ccf018dc78cec15df520d068f743d65b.setContent(html_5c570088c484de6adaf1278d5493e8d7);
+                var html_9a46ea8f63767afe734c9ed08de2c153 = $(`<div id="html_9a46ea8f63767afe734c9ed08de2c153" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #ffb81c;">Nashville Predators</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Bridgestone Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Nashville, TN</p>                 <p style="margin: 3px 0;"><b>Population:</b> 26.98M</p>             </div>             </div>`)[0];
+                popup_f94db744a15c03127efc8139771471f0.setContent(html_9a46ea8f63767afe734c9ed08de2c153);
             
         
 
-        marker_616bd7ec9482c0d489e49cde7d5348e4.bindPopup(popup_ccf018dc78cec15df520d068f743d65b)
+        marker_6e4c6ccf8927bf74a7bf6f09c9cdfd57.bindPopup(popup_f94db744a15c03127efc8139771471f0)
         ;
 
         
     
     
-            marker_616bd7ec9482c0d489e49cde7d5348e4.bindTooltip(
+            marker_6e4c6ccf8927bf74a7bf6f09c9cdfd57.bindTooltip(
                 `<div>
                      Nashville Predators (26.98M)
                  </div>`,
@@ -1570,17 +1578,17 @@
             );
         
     
-                marker_616bd7ec9482c0d489e49cde7d5348e4.setIcon(div_icon_28544df5977ac78cc6341646fc2dedc4);
+                marker_6e4c6ccf8927bf74a7bf6f09c9cdfd57.setIcon(div_icon_ffebc6c8dd8c65625b12f5a331377477);
             
     
-            var marker_a8a4a7343ae7509357b48ebbbdb35405 = L.marker(
+            var marker_ffbf3fff2a7b1eb71aa7244a1f0950ec = L.marker(
                 [40.7336, -74.1711],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_0bf85cecb0cb004436a273c55bebc0d7 = L.divIcon({
+            var div_icon_4d78b35895d55af6abcf5b6e67eaa674 = L.divIcon({
   "html": "\n        \u003csvg width=\"18\" height=\"18\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"9\" cy=\"9\" r=\"7\" fill=\"#ce1126\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/NJD.png\" x=\"3\" y=\"3\" width=\"12\" height=\"12\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [18, 18],
   "iconAnchor": [9, 9],
@@ -1588,24 +1596,24 @@
 });
         
     
-        var popup_af16523d7cbd1be5680a8b99785e7508 = L.popup({
+        var popup_a23db5470dbc7ecd0ad19af7479f415c = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_15f16da63c55d5d79cb31e476b6b1f49 = $(`<div id="html_15f16da63c55d5d79cb31e476b6b1f49" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #ce1126;">New Jersey Devils</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Prudential Center</p>                 <p style="margin: 3px 0;"><b>Location:</b> Newark, NJ</p>                 <p style="margin: 3px 0;"><b>Population:</b> 6.86M</p>             </div>             </div>`)[0];
-                popup_af16523d7cbd1be5680a8b99785e7508.setContent(html_15f16da63c55d5d79cb31e476b6b1f49);
+                var html_165a07f1304a6111cdd522f424c6396d = $(`<div id="html_165a07f1304a6111cdd522f424c6396d" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #ce1126;">New Jersey Devils</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Prudential Center</p>                 <p style="margin: 3px 0;"><b>Location:</b> Newark, NJ</p>                 <p style="margin: 3px 0;"><b>Population:</b> 6.86M</p>             </div>             </div>`)[0];
+                popup_a23db5470dbc7ecd0ad19af7479f415c.setContent(html_165a07f1304a6111cdd522f424c6396d);
             
         
 
-        marker_a8a4a7343ae7509357b48ebbbdb35405.bindPopup(popup_af16523d7cbd1be5680a8b99785e7508)
+        marker_ffbf3fff2a7b1eb71aa7244a1f0950ec.bindPopup(popup_a23db5470dbc7ecd0ad19af7479f415c)
         ;
 
         
     
     
-            marker_a8a4a7343ae7509357b48ebbbdb35405.bindTooltip(
+            marker_ffbf3fff2a7b1eb71aa7244a1f0950ec.bindTooltip(
                 `<div>
                      New Jersey Devils (6.86M)
                  </div>`,
@@ -1615,17 +1623,17 @@
             );
         
     
-                marker_a8a4a7343ae7509357b48ebbbdb35405.setIcon(div_icon_0bf85cecb0cb004436a273c55bebc0d7);
+                marker_ffbf3fff2a7b1eb71aa7244a1f0950ec.setIcon(div_icon_4d78b35895d55af6abcf5b6e67eaa674);
             
     
-            var marker_aa68a518991a0aa8354cb723e1cef58d = L.marker(
+            var marker_75d351c6479966e1b75abdffd8b7ab87 = L.marker(
                 [40.7231, -73.7225],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_81068045d5481b53806105d4883138e8 = L.divIcon({
+            var div_icon_89834c9e197a25570b00b285740ef121 = L.divIcon({
   "html": "\n        \u003csvg width=\"17\" height=\"17\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"8\" cy=\"8\" r=\"6\" fill=\"#00539b\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/NYI.png\" x=\"3\" y=\"3\" width=\"11\" height=\"11\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [17, 17],
   "iconAnchor": [8, 8],
@@ -1633,24 +1641,24 @@
 });
         
     
-        var popup_d7258fda32a6aa47565554bd9a303cf8 = L.popup({
+        var popup_2596fb2c091c78e7e78c46250ab125f7 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_1abfc1ddd58cceb1320336795a2d40d7 = $(`<div id="html_1abfc1ddd58cceb1320336795a2d40d7" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #00539b;">New York Islanders</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> UBS Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Elmont, NY</p>                 <p style="margin: 3px 0;"><b>Population:</b> 6.25M</p>             </div>             </div>`)[0];
-                popup_d7258fda32a6aa47565554bd9a303cf8.setContent(html_1abfc1ddd58cceb1320336795a2d40d7);
+                var html_febd08a4e4dbd99c227a54b60d50fb10 = $(`<div id="html_febd08a4e4dbd99c227a54b60d50fb10" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #00539b;">New York Islanders</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> UBS Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Elmont, NY</p>                 <p style="margin: 3px 0;"><b>Population:</b> 6.25M</p>             </div>             </div>`)[0];
+                popup_2596fb2c091c78e7e78c46250ab125f7.setContent(html_febd08a4e4dbd99c227a54b60d50fb10);
             
         
 
-        marker_aa68a518991a0aa8354cb723e1cef58d.bindPopup(popup_d7258fda32a6aa47565554bd9a303cf8)
+        marker_75d351c6479966e1b75abdffd8b7ab87.bindPopup(popup_2596fb2c091c78e7e78c46250ab125f7)
         ;
 
         
     
     
-            marker_aa68a518991a0aa8354cb723e1cef58d.bindTooltip(
+            marker_75d351c6479966e1b75abdffd8b7ab87.bindTooltip(
                 `<div>
                      New York Islanders (6.25M)
                  </div>`,
@@ -1660,17 +1668,17 @@
             );
         
     
-                marker_aa68a518991a0aa8354cb723e1cef58d.setIcon(div_icon_81068045d5481b53806105d4883138e8);
+                marker_75d351c6479966e1b75abdffd8b7ab87.setIcon(div_icon_89834c9e197a25570b00b285740ef121);
             
     
-            var marker_3653d813065040efae765f9f29db4258 = L.marker(
+            var marker_c674dc1d6cc48cd7bd86e10b0dd219ae = L.marker(
                 [40.7505, -73.9934],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_6c9830e4fb7b709232e3bca41d293dbe = L.divIcon({
+            var div_icon_ad8febb8b3b9c11c92857cb685719129 = L.divIcon({
   "html": "\n        \u003csvg width=\"20\" height=\"20\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"10\" cy=\"10\" r=\"8\" fill=\"#0038a8\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/NYR.png\" x=\"3\" y=\"3\" width=\"14\" height=\"14\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [20, 20],
   "iconAnchor": [10, 10],
@@ -1678,24 +1686,24 @@
 });
         
     
-        var popup_1d3ba64e13050d43f101dd24de4917e5 = L.popup({
+        var popup_ba168f1fde91dfbe78ed766b8c56502a = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_66a27f3dd4b9f8d2c3c3ceb71a3e4e72 = $(`<div id="html_66a27f3dd4b9f8d2c3c3ceb71a3e4e72" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #0038a8;">New York Rangers</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Madison Square Garden</p>                 <p style="margin: 3px 0;"><b>Location:</b> New York, NY</p>                 <p style="margin: 3px 0;"><b>Population:</b> 9.00M</p>             </div>             </div>`)[0];
-                popup_1d3ba64e13050d43f101dd24de4917e5.setContent(html_66a27f3dd4b9f8d2c3c3ceb71a3e4e72);
+                var html_93c0ea53cb5cdcbf5b47755f8b089825 = $(`<div id="html_93c0ea53cb5cdcbf5b47755f8b089825" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #0038a8;">New York Rangers</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Madison Square Garden</p>                 <p style="margin: 3px 0;"><b>Location:</b> New York, NY</p>                 <p style="margin: 3px 0;"><b>Population:</b> 9.00M</p>             </div>             </div>`)[0];
+                popup_ba168f1fde91dfbe78ed766b8c56502a.setContent(html_93c0ea53cb5cdcbf5b47755f8b089825);
             
         
 
-        marker_3653d813065040efae765f9f29db4258.bindPopup(popup_1d3ba64e13050d43f101dd24de4917e5)
+        marker_c674dc1d6cc48cd7bd86e10b0dd219ae.bindPopup(popup_ba168f1fde91dfbe78ed766b8c56502a)
         ;
 
         
     
     
-            marker_3653d813065040efae765f9f29db4258.bindTooltip(
+            marker_c674dc1d6cc48cd7bd86e10b0dd219ae.bindTooltip(
                 `<div>
                      New York Rangers (9.00M)
                  </div>`,
@@ -1705,17 +1713,17 @@
             );
         
     
-                marker_3653d813065040efae765f9f29db4258.setIcon(div_icon_6c9830e4fb7b709232e3bca41d293dbe);
+                marker_c674dc1d6cc48cd7bd86e10b0dd219ae.setIcon(div_icon_ad8febb8b3b9c11c92857cb685719129);
             
     
-            var marker_c329ecbb04a9f6e576ccdd32f3d8a9fb = L.marker(
+            var marker_704b9e5ca5d48a6cb342ffea8851b70b = L.marker(
                 [45.2969, -75.9272],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_5f92d0580cfd6ff8ee9655d348ae8093 = L.divIcon({
+            var div_icon_5547eec6590c69ec1eab857fd29e3f80 = L.divIcon({
   "html": "\n        \u003csvg width=\"16\" height=\"16\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"8\" cy=\"8\" r=\"6\" fill=\"#c8102e\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/OTT.png\" x=\"2\" y=\"2\" width=\"11\" height=\"11\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [16, 16],
   "iconAnchor": [8, 8],
@@ -1723,24 +1731,24 @@
 });
         
     
-        var popup_ff033d13833e2daeff9d850204cb40b3 = L.popup({
+        var popup_d2f71542314af1bc234091f8b9482a57 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_d529a4932a4d733f41eb79501f8dfcf3 = $(`<div id="html_d529a4932a4d733f41eb79501f8dfcf3" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #c8102e;">Ottawa Senators</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Canadian Tire Centre</p>                 <p style="margin: 3px 0;"><b>Location:</b> Ottawa, ON</p>             </div>             </div>`)[0];
-                popup_ff033d13833e2daeff9d850204cb40b3.setContent(html_d529a4932a4d733f41eb79501f8dfcf3);
+                var html_ae2b0f081de2d0e7e2c2cd441649b5e7 = $(`<div id="html_ae2b0f081de2d0e7e2c2cd441649b5e7" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #c8102e;">Ottawa Senators</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Canadian Tire Centre</p>                 <p style="margin: 3px 0;"><b>Location:</b> Ottawa, ON</p>             </div>             </div>`)[0];
+                popup_d2f71542314af1bc234091f8b9482a57.setContent(html_ae2b0f081de2d0e7e2c2cd441649b5e7);
             
         
 
-        marker_c329ecbb04a9f6e576ccdd32f3d8a9fb.bindPopup(popup_ff033d13833e2daeff9d850204cb40b3)
+        marker_704b9e5ca5d48a6cb342ffea8851b70b.bindPopup(popup_d2f71542314af1bc234091f8b9482a57)
         ;
 
         
     
     
-            marker_c329ecbb04a9f6e576ccdd32f3d8a9fb.bindTooltip(
+            marker_704b9e5ca5d48a6cb342ffea8851b70b.bindTooltip(
                 `<div>
                      Ottawa Senators
                  </div>`,
@@ -1750,17 +1758,17 @@
             );
         
     
-                marker_c329ecbb04a9f6e576ccdd32f3d8a9fb.setIcon(div_icon_5f92d0580cfd6ff8ee9655d348ae8093);
+                marker_704b9e5ca5d48a6cb342ffea8851b70b.setIcon(div_icon_5547eec6590c69ec1eab857fd29e3f80);
             
     
-            var marker_f243647f9d775b1446ab347c3774a9ed = L.marker(
+            var marker_bb5538700c4222a48979fe6c9bcbcdec = L.marker(
                 [39.9011, -75.1719],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_afef0b42596a493e4fce820943c4a41e = L.divIcon({
+            var div_icon_1b68151fe174a978228900a8b8de1d39 = L.divIcon({
   "html": "\n        \u003csvg width=\"22\" height=\"22\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"11\" cy=\"11\" r=\"9\" fill=\"#f74902\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/PHI.png\" x=\"3\" y=\"3\" width=\"15\" height=\"15\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [22, 22],
   "iconAnchor": [11, 11],
@@ -1768,24 +1776,24 @@
 });
         
     
-        var popup_4b90f45a287d9ab357e1482fc0d94a8b = L.popup({
+        var popup_758f05e0d2ae9acfbfeb8bbfeb572d5a = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_2a4d5b5d6c80bd26422c87b65a7586e6 = $(`<div id="html_2a4d5b5d6c80bd26422c87b65a7586e6" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #f74902;">Philadelphia Flyers</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Wells Fargo Center</p>                 <p style="margin: 3px 0;"><b>Location:</b> Philadelphia, PA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 11.45M</p>             </div>             </div>`)[0];
-                popup_4b90f45a287d9ab357e1482fc0d94a8b.setContent(html_2a4d5b5d6c80bd26422c87b65a7586e6);
+                var html_9d44838f579b9daa983e4e4691be5796 = $(`<div id="html_9d44838f579b9daa983e4e4691be5796" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #f74902;">Philadelphia Flyers</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Wells Fargo Center</p>                 <p style="margin: 3px 0;"><b>Location:</b> Philadelphia, PA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 11.45M</p>             </div>             </div>`)[0];
+                popup_758f05e0d2ae9acfbfeb8bbfeb572d5a.setContent(html_9d44838f579b9daa983e4e4691be5796);
             
         
 
-        marker_f243647f9d775b1446ab347c3774a9ed.bindPopup(popup_4b90f45a287d9ab357e1482fc0d94a8b)
+        marker_bb5538700c4222a48979fe6c9bcbcdec.bindPopup(popup_758f05e0d2ae9acfbfeb8bbfeb572d5a)
         ;
 
         
     
     
-            marker_f243647f9d775b1446ab347c3774a9ed.bindTooltip(
+            marker_bb5538700c4222a48979fe6c9bcbcdec.bindTooltip(
                 `<div>
                      Philadelphia Flyers (11.45M)
                  </div>`,
@@ -1795,17 +1803,17 @@
             );
         
     
-                marker_f243647f9d775b1446ab347c3774a9ed.setIcon(div_icon_afef0b42596a493e4fce820943c4a41e);
+                marker_bb5538700c4222a48979fe6c9bcbcdec.setIcon(div_icon_1b68151fe174a978228900a8b8de1d39);
             
     
-            var marker_2f564f8b448550b6668860b4997483c8 = L.marker(
+            var marker_47d4b03399c05f42c1fe1e449f2b13a8 = L.marker(
                 [40.4394, -79.9892],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_9e10eb4edcfc8c299c00a2c5d7e5bc35 = L.divIcon({
+            var div_icon_b5878aa286fdb7423aa5653b102fe72b = L.divIcon({
   "html": "\n        \u003csvg width=\"17\" height=\"17\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"8\" cy=\"8\" r=\"6\" fill=\"#000000\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/PIT.png\" x=\"3\" y=\"3\" width=\"11\" height=\"11\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [17, 17],
   "iconAnchor": [8, 8],
@@ -1813,24 +1821,24 @@
 });
         
     
-        var popup_3be3f4e1d4c2b587edf93ac82bb9f452 = L.popup({
+        var popup_ef4674f4b3178a26f0a49237ef7d2be0 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_81b394ea5e9377aec953dd2681a15252 = $(`<div id="html_81b394ea5e9377aec953dd2681a15252" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #000000;">Pittsburgh Penguins</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> PPG Paints Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Pittsburgh, PA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 6.35M</p>             </div>             </div>`)[0];
-                popup_3be3f4e1d4c2b587edf93ac82bb9f452.setContent(html_81b394ea5e9377aec953dd2681a15252);
+                var html_871aa93b6f1382694a9f3c809725a148 = $(`<div id="html_871aa93b6f1382694a9f3c809725a148" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #000000;">Pittsburgh Penguins</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> PPG Paints Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Pittsburgh, PA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 6.35M</p>             </div>             </div>`)[0];
+                popup_ef4674f4b3178a26f0a49237ef7d2be0.setContent(html_871aa93b6f1382694a9f3c809725a148);
             
         
 
-        marker_2f564f8b448550b6668860b4997483c8.bindPopup(popup_3be3f4e1d4c2b587edf93ac82bb9f452)
+        marker_47d4b03399c05f42c1fe1e449f2b13a8.bindPopup(popup_ef4674f4b3178a26f0a49237ef7d2be0)
         ;
 
         
     
     
-            marker_2f564f8b448550b6668860b4997483c8.bindTooltip(
+            marker_47d4b03399c05f42c1fe1e449f2b13a8.bindTooltip(
                 `<div>
                      Pittsburgh Penguins (6.35M)
                  </div>`,
@@ -1840,17 +1848,17 @@
             );
         
     
-                marker_2f564f8b448550b6668860b4997483c8.setIcon(div_icon_9e10eb4edcfc8c299c00a2c5d7e5bc35);
+                marker_47d4b03399c05f42c1fe1e449f2b13a8.setIcon(div_icon_b5878aa286fdb7423aa5653b102fe72b);
             
     
-            var marker_763b029e2cad4d6a35a3b5557c223f87 = L.marker(
+            var marker_26424d743666f7cf4c2206c24c2190c4 = L.marker(
                 [37.3328, -121.9011],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_9a1492e26d3e367f5556fc7b7d1fc5b5 = L.divIcon({
+            var div_icon_a62a09bcf8031ff2a7492ee9c63a3514 = L.divIcon({
   "html": "\n        \u003csvg width=\"28\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"14\" cy=\"14\" r=\"12\" fill=\"#006d75\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/SJ.png\" x=\"4\" y=\"4\" width=\"19\" height=\"19\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [28, 28],
   "iconAnchor": [14, 14],
@@ -1858,24 +1866,24 @@
 });
         
     
-        var popup_619dd14da39462fb407bec6f7c6a54b1 = L.popup({
+        var popup_910dc3b76c9c13d07cfd2ba585db213f = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_eb439d78481deb201a8fa3de7cf6d95d = $(`<div id="html_eb439d78481deb201a8fa3de7cf6d95d" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #006d75;">San Jose Sharks</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> SAP Center</p>                 <p style="margin: 3px 0;"><b>Location:</b> San Jose, CA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 17.79M</p>             </div>             </div>`)[0];
-                popup_619dd14da39462fb407bec6f7c6a54b1.setContent(html_eb439d78481deb201a8fa3de7cf6d95d);
+                var html_e5504e75c42a3a5bee24432c70651293 = $(`<div id="html_e5504e75c42a3a5bee24432c70651293" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #006d75;">San Jose Sharks</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> SAP Center</p>                 <p style="margin: 3px 0;"><b>Location:</b> San Jose, CA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 17.79M</p>             </div>             </div>`)[0];
+                popup_910dc3b76c9c13d07cfd2ba585db213f.setContent(html_e5504e75c42a3a5bee24432c70651293);
             
         
 
-        marker_763b029e2cad4d6a35a3b5557c223f87.bindPopup(popup_619dd14da39462fb407bec6f7c6a54b1)
+        marker_26424d743666f7cf4c2206c24c2190c4.bindPopup(popup_910dc3b76c9c13d07cfd2ba585db213f)
         ;
 
         
     
     
-            marker_763b029e2cad4d6a35a3b5557c223f87.bindTooltip(
+            marker_26424d743666f7cf4c2206c24c2190c4.bindTooltip(
                 `<div>
                      San Jose Sharks (17.79M)
                  </div>`,
@@ -1885,17 +1893,17 @@
             );
         
     
-                marker_763b029e2cad4d6a35a3b5557c223f87.setIcon(div_icon_9a1492e26d3e367f5556fc7b7d1fc5b5);
+                marker_26424d743666f7cf4c2206c24c2190c4.setIcon(div_icon_a62a09bcf8031ff2a7492ee9c63a3514);
             
     
-            var marker_4ebc9180cae71f0865a49674e1aa9247 = L.marker(
+            var marker_5f67e0cefaae49b4c69e544ba7a7e900 = L.marker(
                 [47.622, -122.3542],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_2cebf28ed7e0dd45fc49fe5e0601ad07 = L.divIcon({
+            var div_icon_0a6f1a4602d7fe9deaf8007f823ee323 = L.divIcon({
   "html": "\n        \u003csvg width=\"25\" height=\"25\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"12\" cy=\"12\" r=\"10\" fill=\"#001628\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/SEA.png\" x=\"4\" y=\"4\" width=\"17\" height=\"17\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [25, 25],
   "iconAnchor": [12, 12],
@@ -1903,24 +1911,24 @@
 });
         
     
-        var popup_60ee72a3a54f723390bb41432e538cfb = L.popup({
+        var popup_edf19d1ff408f362ffa94fe7d2d09689 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_42d32e06831ac01f4a9c4d3431122958 = $(`<div id="html_42d32e06831ac01f4a9c4d3431122958" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #001628;">Seattle Kraken</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Climate Pledge Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Seattle, WA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 14.36M</p>             </div>             </div>`)[0];
-                popup_60ee72a3a54f723390bb41432e538cfb.setContent(html_42d32e06831ac01f4a9c4d3431122958);
+                var html_e678cb30705ee6f14ba37214f034d0b7 = $(`<div id="html_e678cb30705ee6f14ba37214f034d0b7" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #001628;">Seattle Kraken</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Climate Pledge Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Seattle, WA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 14.36M</p>             </div>             </div>`)[0];
+                popup_edf19d1ff408f362ffa94fe7d2d09689.setContent(html_e678cb30705ee6f14ba37214f034d0b7);
             
         
 
-        marker_4ebc9180cae71f0865a49674e1aa9247.bindPopup(popup_60ee72a3a54f723390bb41432e538cfb)
+        marker_5f67e0cefaae49b4c69e544ba7a7e900.bindPopup(popup_edf19d1ff408f362ffa94fe7d2d09689)
         ;
 
         
     
     
-            marker_4ebc9180cae71f0865a49674e1aa9247.bindTooltip(
+            marker_5f67e0cefaae49b4c69e544ba7a7e900.bindTooltip(
                 `<div>
                      Seattle Kraken (14.36M)
                  </div>`,
@@ -1930,17 +1938,17 @@
             );
         
     
-                marker_4ebc9180cae71f0865a49674e1aa9247.setIcon(div_icon_2cebf28ed7e0dd45fc49fe5e0601ad07);
+                marker_5f67e0cefaae49b4c69e544ba7a7e900.setIcon(div_icon_0a6f1a4602d7fe9deaf8007f823ee323);
             
     
-            var marker_15ac78ce581efcd83a3818fa16706ed4 = L.marker(
+            var marker_bc8dd0408ce95e0ec0ba32bd017cd43e = L.marker(
                 [38.6267, -90.2025],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_ce407693f981a0613d5d2fb3d34acf8d = L.divIcon({
+            var div_icon_2013f6b494d9802a8706ea13f847fb6b = L.divIcon({
   "html": "\n        \u003csvg width=\"23\" height=\"23\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"11\" cy=\"11\" r=\"9\" fill=\"#002f6c\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/STL.png\" x=\"3\" y=\"3\" width=\"16\" height=\"16\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [23, 23],
   "iconAnchor": [11, 11],
@@ -1948,24 +1956,24 @@
 });
         
     
-        var popup_12685d75c32092f90cfa136696b9345a = L.popup({
+        var popup_3cb9a49b2410616858faf48e3b7c5ca5 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_fea6009c5fd8360ccb4000e4ebec69ca = $(`<div id="html_fea6009c5fd8360ccb4000e4ebec69ca" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #002f6c;">St. Louis Blues</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Enterprise Center</p>                 <p style="margin: 3px 0;"><b>Location:</b> St. Louis, MO</p>                 <p style="margin: 3px 0;"><b>Population:</b> 13.16M</p>             </div>             </div>`)[0];
-                popup_12685d75c32092f90cfa136696b9345a.setContent(html_fea6009c5fd8360ccb4000e4ebec69ca);
+                var html_28a670d1ed40eed5b5e383edbaea1817 = $(`<div id="html_28a670d1ed40eed5b5e383edbaea1817" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #002f6c;">St. Louis Blues</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Enterprise Center</p>                 <p style="margin: 3px 0;"><b>Location:</b> St. Louis, MO</p>                 <p style="margin: 3px 0;"><b>Population:</b> 13.16M</p>             </div>             </div>`)[0];
+                popup_3cb9a49b2410616858faf48e3b7c5ca5.setContent(html_28a670d1ed40eed5b5e383edbaea1817);
             
         
 
-        marker_15ac78ce581efcd83a3818fa16706ed4.bindPopup(popup_12685d75c32092f90cfa136696b9345a)
+        marker_bc8dd0408ce95e0ec0ba32bd017cd43e.bindPopup(popup_3cb9a49b2410616858faf48e3b7c5ca5)
         ;
 
         
     
     
-            marker_15ac78ce581efcd83a3818fa16706ed4.bindTooltip(
+            marker_bc8dd0408ce95e0ec0ba32bd017cd43e.bindTooltip(
                 `<div>
                      St. Louis Blues (13.16M)
                  </div>`,
@@ -1975,17 +1983,17 @@
             );
         
     
-                marker_15ac78ce581efcd83a3818fa16706ed4.setIcon(div_icon_ce407693f981a0613d5d2fb3d34acf8d);
+                marker_bc8dd0408ce95e0ec0ba32bd017cd43e.setIcon(div_icon_2013f6b494d9802a8706ea13f847fb6b);
             
     
-            var marker_c9ba8f37b10c1c27c5c14fda7f33a0d5 = L.marker(
+            var marker_8c855b2915eb1774b58d71c9c03b1cd9 = L.marker(
                 [27.9428, -82.4519],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_378846704cdc6758cb0a40a639e39cec = L.divIcon({
+            var div_icon_4cd8a397fc494b9cc17fb3765127f7d1 = L.divIcon({
   "html": "\n        \u003csvg width=\"28\" height=\"28\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"14\" cy=\"14\" r=\"12\" fill=\"#002868\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/TB.png\" x=\"4\" y=\"4\" width=\"19\" height=\"19\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [28, 28],
   "iconAnchor": [14, 14],
@@ -1993,24 +2001,24 @@
 });
         
     
-        var popup_cdd87c06ae17a934070236415b2ec646 = L.popup({
+        var popup_b1eeadc0644ab7ab46088e7c4739b961 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_c26a86f07b2d87a3f7414cbed5b2fab0 = $(`<div id="html_c26a86f07b2d87a3f7414cbed5b2fab0" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #002868;">Tampa Bay Lightning</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Amalie Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Tampa, FL</p>                 <p style="margin: 3px 0;"><b>Population:</b> 17.93M</p>             </div>             </div>`)[0];
-                popup_cdd87c06ae17a934070236415b2ec646.setContent(html_c26a86f07b2d87a3f7414cbed5b2fab0);
+                var html_8e10dc2c41e7f554a4a8b269b98f1912 = $(`<div id="html_8e10dc2c41e7f554a4a8b269b98f1912" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #002868;">Tampa Bay Lightning</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Amalie Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Tampa, FL</p>                 <p style="margin: 3px 0;"><b>Population:</b> 17.93M</p>             </div>             </div>`)[0];
+                popup_b1eeadc0644ab7ab46088e7c4739b961.setContent(html_8e10dc2c41e7f554a4a8b269b98f1912);
             
         
 
-        marker_c9ba8f37b10c1c27c5c14fda7f33a0d5.bindPopup(popup_cdd87c06ae17a934070236415b2ec646)
+        marker_8c855b2915eb1774b58d71c9c03b1cd9.bindPopup(popup_b1eeadc0644ab7ab46088e7c4739b961)
         ;
 
         
     
     
-            marker_c9ba8f37b10c1c27c5c14fda7f33a0d5.bindTooltip(
+            marker_8c855b2915eb1774b58d71c9c03b1cd9.bindTooltip(
                 `<div>
                      Tampa Bay Lightning (17.93M)
                  </div>`,
@@ -2020,17 +2028,17 @@
             );
         
     
-                marker_c9ba8f37b10c1c27c5c14fda7f33a0d5.setIcon(div_icon_378846704cdc6758cb0a40a639e39cec);
+                marker_8c855b2915eb1774b58d71c9c03b1cd9.setIcon(div_icon_4cd8a397fc494b9cc17fb3765127f7d1);
             
     
-            var marker_ae1940413cd169b0186832f2883fc4c4 = L.marker(
+            var marker_7597b4e4acc355bf03d263ff614df3b9 = L.marker(
                 [43.6433, -79.3792],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_730504a989f39691ab865805e967f238 = L.divIcon({
+            var div_icon_fba183edd3b33ebdb7e0271dd6097737 = L.divIcon({
   "html": "\n        \u003csvg width=\"16\" height=\"16\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"8\" cy=\"8\" r=\"6\" fill=\"#00205b\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/TOR.png\" x=\"2\" y=\"2\" width=\"11\" height=\"11\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [16, 16],
   "iconAnchor": [8, 8],
@@ -2038,24 +2046,24 @@
 });
         
     
-        var popup_b7fdd69ffbdd523c7a3b32c174b112c0 = L.popup({
+        var popup_16011f52b5917feee40baf8d1a4b556f = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_aaefc94f312afd5e7f35660d9b80924a = $(`<div id="html_aaefc94f312afd5e7f35660d9b80924a" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #00205b;">Toronto Maple Leafs</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Scotiabank Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Toronto, ON</p>             </div>             </div>`)[0];
-                popup_b7fdd69ffbdd523c7a3b32c174b112c0.setContent(html_aaefc94f312afd5e7f35660d9b80924a);
+                var html_6682e546189b2e6e879b2e0ebb45cfa4 = $(`<div id="html_6682e546189b2e6e879b2e0ebb45cfa4" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #00205b;">Toronto Maple Leafs</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Scotiabank Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Toronto, ON</p>             </div>             </div>`)[0];
+                popup_16011f52b5917feee40baf8d1a4b556f.setContent(html_6682e546189b2e6e879b2e0ebb45cfa4);
             
         
 
-        marker_ae1940413cd169b0186832f2883fc4c4.bindPopup(popup_b7fdd69ffbdd523c7a3b32c174b112c0)
+        marker_7597b4e4acc355bf03d263ff614df3b9.bindPopup(popup_16011f52b5917feee40baf8d1a4b556f)
         ;
 
         
     
     
-            marker_ae1940413cd169b0186832f2883fc4c4.bindTooltip(
+            marker_7597b4e4acc355bf03d263ff614df3b9.bindTooltip(
                 `<div>
                      Toronto Maple Leafs
                  </div>`,
@@ -2065,17 +2073,17 @@
             );
         
     
-                marker_ae1940413cd169b0186832f2883fc4c4.setIcon(div_icon_730504a989f39691ab865805e967f238);
+                marker_7597b4e4acc355bf03d263ff614df3b9.setIcon(div_icon_fba183edd3b33ebdb7e0271dd6097737);
             
     
-            var marker_7146ad0f99c4f52d42d60a193bfbc636 = L.marker(
+            var marker_95ec89a362e4679449a32a4f469072bc = L.marker(
                 [49.2778, -123.1089],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_e2bc1b08f8b7343104181b16dcfd611f = L.divIcon({
+            var div_icon_ffc524fef3abbe1556f74a88aa5e3f2d = L.divIcon({
   "html": "\n        \u003csvg width=\"16\" height=\"16\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"8\" cy=\"8\" r=\"6\" fill=\"#00205b\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/VAN.png\" x=\"2\" y=\"2\" width=\"11\" height=\"11\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [16, 16],
   "iconAnchor": [8, 8],
@@ -2083,24 +2091,24 @@
 });
         
     
-        var popup_b3019fe7153555a430364600b0855a2f = L.popup({
+        var popup_8c913e1525fb1d23e28430f95afe2856 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_f349725198c1453871b5fe6fd94bf40a = $(`<div id="html_f349725198c1453871b5fe6fd94bf40a" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #00205b;">Vancouver Canucks</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Rogers Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Vancouver, BC</p>             </div>             </div>`)[0];
-                popup_b3019fe7153555a430364600b0855a2f.setContent(html_f349725198c1453871b5fe6fd94bf40a);
+                var html_09d870ce10a509fc8e250aa95304c51f = $(`<div id="html_09d870ce10a509fc8e250aa95304c51f" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #00205b;">Vancouver Canucks</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Rogers Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Vancouver, BC</p>             </div>             </div>`)[0];
+                popup_8c913e1525fb1d23e28430f95afe2856.setContent(html_09d870ce10a509fc8e250aa95304c51f);
             
         
 
-        marker_7146ad0f99c4f52d42d60a193bfbc636.bindPopup(popup_b3019fe7153555a430364600b0855a2f)
+        marker_95ec89a362e4679449a32a4f469072bc.bindPopup(popup_8c913e1525fb1d23e28430f95afe2856)
         ;
 
         
     
     
-            marker_7146ad0f99c4f52d42d60a193bfbc636.bindTooltip(
+            marker_95ec89a362e4679449a32a4f469072bc.bindTooltip(
                 `<div>
                      Vancouver Canucks
                  </div>`,
@@ -2110,17 +2118,17 @@
             );
         
     
-                marker_7146ad0f99c4f52d42d60a193bfbc636.setIcon(div_icon_e2bc1b08f8b7343104181b16dcfd611f);
+                marker_95ec89a362e4679449a32a4f469072bc.setIcon(div_icon_ffc524fef3abbe1556f74a88aa5e3f2d);
             
     
-            var marker_9540991355cca00748d761de3d2b376e = L.marker(
+            var marker_769cc65d3d1b725863b497ee05e0e1d7 = L.marker(
                 [36.1027, -115.1781],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_4d6ba32c7cc30d593463d5631cb3416e = L.divIcon({
+            var div_icon_cc02533f4c3ee86cdf3dafa553480333 = L.divIcon({
   "html": "\n        \u003csvg width=\"19\" height=\"19\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"9\" cy=\"9\" r=\"7\" fill=\"#333f48\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/VGK.png\" x=\"3\" y=\"3\" width=\"13\" height=\"13\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [19, 19],
   "iconAnchor": [9, 9],
@@ -2128,24 +2136,24 @@
 });
         
     
-        var popup_e0309e6bfab34a94686724510440b0af = L.popup({
+        var popup_72d43d2b820e5011e7f4abb819fc58ee = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_979e450fb1940bb1e879caa51a20db0b = $(`<div id="html_979e450fb1940bb1e879caa51a20db0b" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #333f48;">Vegas Golden Knights</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> T-Mobile Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Las Vegas, NV</p>                 <p style="margin: 3px 0;"><b>Population:</b> 8.07M</p>             </div>             </div>`)[0];
-                popup_e0309e6bfab34a94686724510440b0af.setContent(html_979e450fb1940bb1e879caa51a20db0b);
+                var html_7e5e1cdba88c7f05173f79e1214720f2 = $(`<div id="html_7e5e1cdba88c7f05173f79e1214720f2" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #333f48;">Vegas Golden Knights</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> T-Mobile Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Las Vegas, NV</p>                 <p style="margin: 3px 0;"><b>Population:</b> 8.07M</p>             </div>             </div>`)[0];
+                popup_72d43d2b820e5011e7f4abb819fc58ee.setContent(html_7e5e1cdba88c7f05173f79e1214720f2);
             
         
 
-        marker_9540991355cca00748d761de3d2b376e.bindPopup(popup_e0309e6bfab34a94686724510440b0af)
+        marker_769cc65d3d1b725863b497ee05e0e1d7.bindPopup(popup_72d43d2b820e5011e7f4abb819fc58ee)
         ;
 
         
     
     
-            marker_9540991355cca00748d761de3d2b376e.bindTooltip(
+            marker_769cc65d3d1b725863b497ee05e0e1d7.bindTooltip(
                 `<div>
                      Vegas Golden Knights (8.07M)
                  </div>`,
@@ -2155,17 +2163,17 @@
             );
         
     
-                marker_9540991355cca00748d761de3d2b376e.setIcon(div_icon_4d6ba32c7cc30d593463d5631cb3416e);
+                marker_769cc65d3d1b725863b497ee05e0e1d7.setIcon(div_icon_cc02533f4c3ee86cdf3dafa553480333);
             
     
-            var marker_11608befe85de9a00229de55c49d4ddb = L.marker(
+            var marker_d69aa9806e412a69ba931dfce8c2d069 = L.marker(
                 [38.8981, -77.0208],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_f847c24ab351b974a6936ff95baf0122 = L.divIcon({
+            var div_icon_55f83430604329b475182dd8ee6a3008 = L.divIcon({
   "html": "\n        \u003csvg width=\"25\" height=\"25\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"12\" cy=\"12\" r=\"10\" fill=\"#c8102e\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/WSH.png\" x=\"4\" y=\"4\" width=\"17\" height=\"17\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [25, 25],
   "iconAnchor": [12, 12],
@@ -2173,24 +2181,24 @@
 });
         
     
-        var popup_6ba84cc67373569f7e4f3851295aa378 = L.popup({
+        var popup_8dce55327ef44df856c1e4a50e45dbd4 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_3d7792640a0800da44d399bf00e85695 = $(`<div id="html_3d7792640a0800da44d399bf00e85695" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #c8102e;">Washington Capitals</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Capital One Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Washington, DC</p>                 <p style="margin: 3px 0;"><b>Population:</b> 14.53M</p>             </div>             </div>`)[0];
-                popup_6ba84cc67373569f7e4f3851295aa378.setContent(html_3d7792640a0800da44d399bf00e85695);
+                var html_e5c84ac6ee29e4eb49f0d79ef0b32460 = $(`<div id="html_e5c84ac6ee29e4eb49f0d79ef0b32460" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #c8102e;">Washington Capitals</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Capital One Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Washington, DC</p>                 <p style="margin: 3px 0;"><b>Population:</b> 14.53M</p>             </div>             </div>`)[0];
+                popup_8dce55327ef44df856c1e4a50e45dbd4.setContent(html_e5c84ac6ee29e4eb49f0d79ef0b32460);
             
         
 
-        marker_11608befe85de9a00229de55c49d4ddb.bindPopup(popup_6ba84cc67373569f7e4f3851295aa378)
+        marker_d69aa9806e412a69ba931dfce8c2d069.bindPopup(popup_8dce55327ef44df856c1e4a50e45dbd4)
         ;
 
         
     
     
-            marker_11608befe85de9a00229de55c49d4ddb.bindTooltip(
+            marker_d69aa9806e412a69ba931dfce8c2d069.bindTooltip(
                 `<div>
                      Washington Capitals (14.53M)
                  </div>`,
@@ -2200,17 +2208,17 @@
             );
         
     
-                marker_11608befe85de9a00229de55c49d4ddb.setIcon(div_icon_f847c24ab351b974a6936ff95baf0122);
+                marker_d69aa9806e412a69ba931dfce8c2d069.setIcon(div_icon_55f83430604329b475182dd8ee6a3008);
             
     
-            var marker_94ae85cd53d6c04090671d7bf9608efa = L.marker(
+            var marker_bf568a7d977a3c472f370e8224ee3d7c = L.marker(
                 [49.8928, -97.1436],
                 {
 }
-            ).addTo(map_30ec18b2909106f24fe8b3c4b044a616);
+            ).addTo(map_da25c23adf2ddd066d68137c98b783ee);
         
     
-            var div_icon_603c9e22410da4b16b02c55e31afd56f = L.divIcon({
+            var div_icon_ee00d6484552a4ca4d0d60f4470fb526 = L.divIcon({
   "html": "\n        \u003csvg width=\"16\" height=\"16\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"8\" cy=\"8\" r=\"6\" fill=\"#041e42\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://a.espncdn.com/i/teamlogos/nhl/500/WPG.png\" x=\"2\" y=\"2\" width=\"11\" height=\"11\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [16, 16],
   "iconAnchor": [8, 8],
@@ -2218,24 +2226,24 @@
 });
         
     
-        var popup_f8664a155a11ae8f31b23a0a1f079056 = L.popup({
+        var popup_354f31a336452082d4090dc8cb95c4e3 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_e404f899a9b156b913241f935df715fa = $(`<div id="html_e404f899a9b156b913241f935df715fa" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #041e42;">Winnipeg Jets</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Canada Life Centre</p>                 <p style="margin: 3px 0;"><b>Location:</b> Winnipeg, MB</p>             </div>             </div>`)[0];
-                popup_f8664a155a11ae8f31b23a0a1f079056.setContent(html_e404f899a9b156b913241f935df715fa);
+                var html_19c890ebf1beaa1d8458712f9372bdb6 = $(`<div id="html_19c890ebf1beaa1d8458712f9372bdb6" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #041e42;">Winnipeg Jets</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Canada Life Centre</p>                 <p style="margin: 3px 0;"><b>Location:</b> Winnipeg, MB</p>             </div>             </div>`)[0];
+                popup_354f31a336452082d4090dc8cb95c4e3.setContent(html_19c890ebf1beaa1d8458712f9372bdb6);
             
         
 
-        marker_94ae85cd53d6c04090671d7bf9608efa.bindPopup(popup_f8664a155a11ae8f31b23a0a1f079056)
+        marker_bf568a7d977a3c472f370e8224ee3d7c.bindPopup(popup_354f31a336452082d4090dc8cb95c4e3)
         ;
 
         
     
     
-            marker_94ae85cd53d6c04090671d7bf9608efa.bindTooltip(
+            marker_bf568a7d977a3c472f370e8224ee3d7c.bindTooltip(
                 `<div>
                      Winnipeg Jets
                  </div>`,
@@ -2245,7 +2253,7 @@
             );
         
     
-                marker_94ae85cd53d6c04090671d7bf9608efa.setIcon(div_icon_603c9e22410da4b16b02c55e31afd56f);
+                marker_bf568a7d977a3c472f370e8224ee3d7c.setIcon(div_icon_ee00d6484552a4ca4d0d60f4470fb526);
             
 </script>
 </html>

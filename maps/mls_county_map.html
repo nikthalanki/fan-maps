@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_2c30f14c7e4dc9b03c95fea532b1d9bf {
+                #map_43ad965fadb4935ea3696a23c115afd9 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -92,18 +92,23 @@
     </script>
     
     
-    <div style="position: fixed; 
+    <div id="legend-container" style="position: fixed; 
                 bottom: 50px; right: 50px; width: 280px; max-height: 80vh; overflow-y: auto;
                 background-color: white; border:3px solid #333; z-index:9999; 
                 font-size:12px; padding: 15px; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
-    <h3 style="margin-top:0; margin-bottom:10px; color: #333;">MLS Teams (by population)</h3>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <h3 style="margin:0; color: #333;">MLS Teams (by population)</h3>
+        <button id="legend-close-btn" onclick="document.getElementById('legend-container').style.display='none'; document.getElementById('legend-toggle-btn').style.display='block';" 
+                style="background: #f0f0f0; border: 1px solid #ccc; border-radius: 3px; padding: 3px 8px; cursor: pointer; font-size: 14px; color: #333;" 
+                onmouseover="this.style.background='#e0e0e0';" onmouseout="this.style.background='#f0f0f0';" title="Close legend">×</button>
+    </div>
     <table style="width: 100%; border-collapse: collapse;">
     <tr style="background-color: #f0f0f0; font-weight: bold; border-bottom: 2px solid #333;">
         <td style="padding: 5px 0; text-align: center; width: 30px;">#</td>
         <td style="padding: 5px 0; width: 20px;"></td>
         <td style="padding: 5px 0;">Team</td>
-        <td style="padding: 5px 0; text-align: right; font-size: 10px;">Pop</td>
-        <td style="padding: 5px 0; text-align: right; font-size: 10px;">Counties</td>
+        <td style="padding: 5px 0; text-align: right; font-size: 10px; padding-right: 20px;">Pop</td>
+        <td style="padding: 5px 0; text-align: right; font-size: 10px; padding-left: 15px;">Counties</td>
     </tr>
     
         <tr style="border-bottom: 1px solid #eee;">
@@ -114,10 +119,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #80000a; font-weight: bold;">Atlanta United</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 35.4M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 450
             </td>
         </tr>
@@ -130,10 +135,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #e71d36; font-weight: bold;">Chicago Fire</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 24.3M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 212
             </td>
         </tr>
@@ -146,10 +151,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #ef3e42; font-weight: bold;">D.C. United</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 23.3M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 234
             </td>
         </tr>
@@ -162,10 +167,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #ffcc00; font-weight: bold;">Columbus Crew</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 19.4M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 148
             </td>
         </tr>
@@ -178,10 +183,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #000000; font-weight: bold;">Los Angeles FC</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 17.9M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 12
             </td>
         </tr>
@@ -194,10 +199,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #0063b1; font-weight: bold;">San Jose Earthquakes</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 17.4M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 62
             </td>
         </tr>
@@ -210,10 +215,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #ae2012; font-weight: bold;">FC Dallas</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 17.3M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 223
             </td>
         </tr>
@@ -226,10 +231,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #00245d; font-weight: bold;">LA Galaxy</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 16.0M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 15
             </td>
         </tr>
@@ -242,10 +247,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #00539b; font-weight: bold;">Sporting Kansas City</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 14.6M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 332
             </td>
         </tr>
@@ -258,10 +263,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #3f124d; font-weight: bold;">Orlando City SC</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 14.6M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 61
             </td>
         </tr>
@@ -274,10 +279,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #e74c3c; font-weight: bold;">Houston Dynamo</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 14.4M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 115
             </td>
         </tr>
@@ -290,10 +295,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #ff8c00; font-weight: bold;">FC Cincinnati</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 13.1M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 249
             </td>
         </tr>
@@ -306,10 +311,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #00539b; font-weight: bold;">New York City FC</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 12.9M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 30
             </td>
         </tr>
@@ -322,10 +327,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #ed1c24; font-weight: bold;">New York Red Bulls</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 12.8M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 44
             </td>
         </tr>
@@ -338,10 +343,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #00539b; font-weight: bold;">Philadelphia Union</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 12.7M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 43
             </td>
         </tr>
@@ -354,10 +359,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #00205b; font-weight: bold;">New England Revolution</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 12.5M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 72
             </td>
         </tr>
@@ -370,10 +375,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #006633; font-weight: bold;">Austin FC</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 10.5M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 107
             </td>
         </tr>
@@ -386,10 +391,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #00539b; font-weight: bold;">Minnesota United FC</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 9.9M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 282
             </td>
         </tr>
@@ -402,10 +407,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #7a0019; font-weight: bold;">Colorado Rapids</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 8.9M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 207
             </td>
         </tr>
@@ -418,10 +423,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #006331; font-weight: bold;">Seattle Sounders FC</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 8.2M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 88
             </td>
         </tr>
@@ -434,10 +439,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #fa4616; font-weight: bold;">Inter Miami CF</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 8.0M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 90
             </td>
         </tr>
@@ -450,10 +455,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #c41230; font-weight: bold;">Real Salt Lake</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 6.1M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 108
             </td>
         </tr>
@@ -466,10 +471,10 @@
             <td style="padding: 3px 0;">
                 <span style="color: #006633; font-weight: bold;">Portland Timbers</span>
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-right: 20px;">
                 5.6M
             </td>
-            <td style="padding: 3px 0; text-align: right; font-size: 10px;">
+            <td style="padding: 3px 0; text-align: right; font-size: 10px; padding-left: 15px;">
                 52
             </td>
         </tr>
@@ -481,6 +486,9 @@
         Duo-color markers = shared venues
     </p>
     </div>
+    <button id="legend-toggle-btn" onclick="document.getElementById('legend-container').style.display='block'; this.style.display='none';" 
+            style="position: fixed; bottom: 50px; right: 50px; background: #333; color: white; border: none; border-radius: 5px; padding: 10px 15px; cursor: pointer; z-index:9998; font-size: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); display: none;" 
+            onmouseover="this.style.background='#555';" onmouseout="this.style.background='#333';" title="Show legend">Show Legend</button>
     
     
     <script>
@@ -760,14 +768,14 @@
     </script>
     
     
-            <div class="folium-map" id="map_2c30f14c7e4dc9b03c95fea532b1d9bf" ></div>
+            <div class="folium-map" id="map_43ad965fadb4935ea3696a23c115afd9" ></div>
         
 </body>
 <script>
     
     
-            var map_2c30f14c7e4dc9b03c95fea532b1d9bf = L.map(
-                "map_2c30f14c7e4dc9b03c95fea532b1d9bf",
+            var map_43ad965fadb4935ea3696a23c115afd9 = L.map(
+                "map_43ad965fadb4935ea3696a23c115afd9",
                 {
                     center: [39.8283, -98.5795],
                     crs: L.CRS.EPSG3857,
@@ -794,7 +802,7 @@
 
         
     
-            var tile_layer_56bd5c521240fd8984aace6b0b4e98a6 = L.tileLayer(
+            var tile_layer_062c2bce23ba286c085447920d382b69 = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 2,
@@ -811,17 +819,17 @@
             );
         
     
-            tile_layer_56bd5c521240fd8984aace6b0b4e98a6.addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            tile_layer_062c2bce23ba286c085447920d382b69.addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var marker_bc3f165094553634dd7f68b0e1e3c69b = L.marker(
+            var marker_efeee12d8006325eeea4b1adb53a0557 = L.marker(
                 [33.7553, -84.401],
                 {
 }
-            ).addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            ).addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var div_icon_37e06cbf0124cc7b4b18a2196ff9b785 = L.divIcon({
+            var div_icon_3552c56b7a5e0163e32e934f56a6278a = L.divIcon({
   "html": "\n        \u003csvg width=\"50\" height=\"50\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"25\" cy=\"25\" r=\"23\" fill=\"#80000a\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \n        \u003c/svg\u003e\n        ",
   "iconSize": [50, 50],
   "iconAnchor": [25, 25],
@@ -829,24 +837,24 @@
 });
         
     
-        var popup_3950a4e6c27e2fe363c09107818b1426 = L.popup({
+        var popup_aefae9b380987ae031351d1e73f661a7 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_e1aba07f1a1465b62e1d349168ed7588 = $(`<div id="html_e1aba07f1a1465b62e1d349168ed7588" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #80000a;">Atlanta United</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Mercedes-Benz Stadium</p>                 <p style="margin: 3px 0;"><b>Location:</b> Atlanta, GA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 35.44M</p>             </div>             </div>`)[0];
-                popup_3950a4e6c27e2fe363c09107818b1426.setContent(html_e1aba07f1a1465b62e1d349168ed7588);
+                var html_df7f57e5d09fd383163f35d34a0f1e19 = $(`<div id="html_df7f57e5d09fd383163f35d34a0f1e19" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #80000a;">Atlanta United</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Mercedes-Benz Stadium</p>                 <p style="margin: 3px 0;"><b>Location:</b> Atlanta, GA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 35.44M</p>             </div>             </div>`)[0];
+                popup_aefae9b380987ae031351d1e73f661a7.setContent(html_df7f57e5d09fd383163f35d34a0f1e19);
             
         
 
-        marker_bc3f165094553634dd7f68b0e1e3c69b.bindPopup(popup_3950a4e6c27e2fe363c09107818b1426)
+        marker_efeee12d8006325eeea4b1adb53a0557.bindPopup(popup_aefae9b380987ae031351d1e73f661a7)
         ;
 
         
     
     
-            marker_bc3f165094553634dd7f68b0e1e3c69b.bindTooltip(
+            marker_efeee12d8006325eeea4b1adb53a0557.bindTooltip(
                 `<div>
                      Atlanta United (35.44M)
                  </div>`,
@@ -856,17 +864,17 @@
             );
         
     
-                marker_bc3f165094553634dd7f68b0e1e3c69b.setIcon(div_icon_37e06cbf0124cc7b4b18a2196ff9b785);
+                marker_efeee12d8006325eeea4b1adb53a0557.setIcon(div_icon_3552c56b7a5e0163e32e934f56a6278a);
             
     
-            var marker_27d031095231a34e2073831f2ab5dd19 = L.marker(
+            var marker_150fddbbf4026a9b4ce41134c053b84e = L.marker(
                 [30.3886, -97.7147],
                 {
 }
-            ).addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            ).addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var div_icon_18143aec48a507eb7d7efed1cd66726e = L.divIcon({
+            var div_icon_644ec6529f48fead57aaf66c4f39826d = L.divIcon({
   "html": "\n        \u003csvg width=\"21\" height=\"21\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"10\" cy=\"10\" r=\"8\" fill=\"#006633\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \n        \u003c/svg\u003e\n        ",
   "iconSize": [21, 21],
   "iconAnchor": [10, 10],
@@ -874,24 +882,24 @@
 });
         
     
-        var popup_2e3e07389ba5f98461a36cfb18e11a9d = L.popup({
+        var popup_91014ddd124d7b7c187a077ad3f0e7b2 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_06f103ffc3dcf601239c84bdb8222680 = $(`<div id="html_06f103ffc3dcf601239c84bdb8222680" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #006633;">Austin FC</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Q2 Stadium</p>                 <p style="margin: 3px 0;"><b>Location:</b> Austin, TX</p>                 <p style="margin: 3px 0;"><b>Population:</b> 10.54M</p>             </div>             </div>`)[0];
-                popup_2e3e07389ba5f98461a36cfb18e11a9d.setContent(html_06f103ffc3dcf601239c84bdb8222680);
+                var html_ce67151863be41b23fc8f6510d9a1bb2 = $(`<div id="html_ce67151863be41b23fc8f6510d9a1bb2" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #006633;">Austin FC</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Q2 Stadium</p>                 <p style="margin: 3px 0;"><b>Location:</b> Austin, TX</p>                 <p style="margin: 3px 0;"><b>Population:</b> 10.54M</p>             </div>             </div>`)[0];
+                popup_91014ddd124d7b7c187a077ad3f0e7b2.setContent(html_ce67151863be41b23fc8f6510d9a1bb2);
             
         
 
-        marker_27d031095231a34e2073831f2ab5dd19.bindPopup(popup_2e3e07389ba5f98461a36cfb18e11a9d)
+        marker_150fddbbf4026a9b4ce41134c053b84e.bindPopup(popup_91014ddd124d7b7c187a077ad3f0e7b2)
         ;
 
         
     
     
-            marker_27d031095231a34e2073831f2ab5dd19.bindTooltip(
+            marker_150fddbbf4026a9b4ce41134c053b84e.bindTooltip(
                 `<div>
                      Austin FC (10.54M)
                  </div>`,
@@ -901,17 +909,17 @@
             );
         
     
-                marker_27d031095231a34e2073831f2ab5dd19.setIcon(div_icon_18143aec48a507eb7d7efed1cd66726e);
+                marker_150fddbbf4026a9b4ce41134c053b84e.setIcon(div_icon_644ec6529f48fead57aaf66c4f39826d);
             
     
-            var marker_165c5b7b2fe4eadadf6b2d5e969e64fd = L.marker(
+            var marker_3167d5fb0fae0899a433aca38d382f35 = L.marker(
                 [41.8625, -87.6167],
                 {
 }
-            ).addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            ).addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var div_icon_f52e67dd21e3e091a3ffb357641424ca = L.divIcon({
+            var div_icon_3fb79da2463cc8ef31add5d373ec4f60 = L.divIcon({
   "html": "\n        \u003csvg width=\"37\" height=\"37\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"18\" cy=\"18\" r=\"16\" fill=\"#e71d36\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://logos-world.net/wp-content/uploads/2021/06/Chicago-Fire-FC-Logo.png\" x=\"6\" y=\"6\" width=\"25\" height=\"25\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [37, 37],
   "iconAnchor": [18, 18],
@@ -919,24 +927,24 @@
 });
         
     
-        var popup_af96944bea5771298af3719f9e0e52d8 = L.popup({
+        var popup_79c8c94ab23f99954ba9076fc2ecccd1 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_e9b67bb9345809fb353f02cd7927e19b = $(`<div id="html_e9b67bb9345809fb353f02cd7927e19b" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #e71d36;">Chicago Fire</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Soldier Field</p>                 <p style="margin: 3px 0;"><b>Location:</b> Chicago, IL</p>                 <p style="margin: 3px 0;"><b>Population:</b> 24.27M</p>             </div>             </div>`)[0];
-                popup_af96944bea5771298af3719f9e0e52d8.setContent(html_e9b67bb9345809fb353f02cd7927e19b);
+                var html_204226f420b71487f7bd821818b5c978 = $(`<div id="html_204226f420b71487f7bd821818b5c978" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #e71d36;">Chicago Fire</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Soldier Field</p>                 <p style="margin: 3px 0;"><b>Location:</b> Chicago, IL</p>                 <p style="margin: 3px 0;"><b>Population:</b> 24.27M</p>             </div>             </div>`)[0];
+                popup_79c8c94ab23f99954ba9076fc2ecccd1.setContent(html_204226f420b71487f7bd821818b5c978);
             
         
 
-        marker_165c5b7b2fe4eadadf6b2d5e969e64fd.bindPopup(popup_af96944bea5771298af3719f9e0e52d8)
+        marker_3167d5fb0fae0899a433aca38d382f35.bindPopup(popup_79c8c94ab23f99954ba9076fc2ecccd1)
         ;
 
         
     
     
-            marker_165c5b7b2fe4eadadf6b2d5e969e64fd.bindTooltip(
+            marker_3167d5fb0fae0899a433aca38d382f35.bindTooltip(
                 `<div>
                      Chicago Fire (24.27M)
                  </div>`,
@@ -946,17 +954,17 @@
             );
         
     
-                marker_165c5b7b2fe4eadadf6b2d5e969e64fd.setIcon(div_icon_f52e67dd21e3e091a3ffb357641424ca);
+                marker_3167d5fb0fae0899a433aca38d382f35.setIcon(div_icon_3fb79da2463cc8ef31add5d373ec4f60);
             
     
-            var marker_ba0c2a60a1abb8bbb1d789d7ae6349a6 = L.marker(
+            var marker_0a9a05f35fb43c264965277bafd64692 = L.marker(
                 [39.1025, -84.516],
                 {
 }
-            ).addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            ).addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var div_icon_59721915fca35aa972b43b5810fecbf3 = L.divIcon({
+            var div_icon_ad7c5f123cd355d715676613d50b26a1 = L.divIcon({
   "html": "\n        \u003csvg width=\"24\" height=\"24\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"12\" cy=\"12\" r=\"10\" fill=\"#ff8c00\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \n        \u003c/svg\u003e\n        ",
   "iconSize": [24, 24],
   "iconAnchor": [12, 12],
@@ -964,24 +972,24 @@
 });
         
     
-        var popup_26a047297fa998a1b41e7b8c772409e2 = L.popup({
+        var popup_3b0a5ce1bee60461384aa37a93ba0c95 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_7baac7a0962580758be4b76d47bbc7a5 = $(`<div id="html_7baac7a0962580758be4b76d47bbc7a5" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #ff8c00;">FC Cincinnati</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> TQL Stadium</p>                 <p style="margin: 3px 0;"><b>Location:</b> Cincinnati, OH</p>                 <p style="margin: 3px 0;"><b>Population:</b> 13.12M</p>             </div>             </div>`)[0];
-                popup_26a047297fa998a1b41e7b8c772409e2.setContent(html_7baac7a0962580758be4b76d47bbc7a5);
+                var html_8b833a35bca04b3df5dd3cb17674d8bc = $(`<div id="html_8b833a35bca04b3df5dd3cb17674d8bc" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #ff8c00;">FC Cincinnati</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> TQL Stadium</p>                 <p style="margin: 3px 0;"><b>Location:</b> Cincinnati, OH</p>                 <p style="margin: 3px 0;"><b>Population:</b> 13.12M</p>             </div>             </div>`)[0];
+                popup_3b0a5ce1bee60461384aa37a93ba0c95.setContent(html_8b833a35bca04b3df5dd3cb17674d8bc);
             
         
 
-        marker_ba0c2a60a1abb8bbb1d789d7ae6349a6.bindPopup(popup_26a047297fa998a1b41e7b8c772409e2)
+        marker_0a9a05f35fb43c264965277bafd64692.bindPopup(popup_3b0a5ce1bee60461384aa37a93ba0c95)
         ;
 
         
     
     
-            marker_ba0c2a60a1abb8bbb1d789d7ae6349a6.bindTooltip(
+            marker_0a9a05f35fb43c264965277bafd64692.bindTooltip(
                 `<div>
                      FC Cincinnati (13.12M)
                  </div>`,
@@ -991,17 +999,17 @@
             );
         
     
-                marker_ba0c2a60a1abb8bbb1d789d7ae6349a6.setIcon(div_icon_59721915fca35aa972b43b5810fecbf3);
+                marker_0a9a05f35fb43c264965277bafd64692.setIcon(div_icon_ad7c5f123cd355d715676613d50b26a1);
             
     
-            var marker_853e8d87050643cfd3b9e3542c89ab17 = L.marker(
+            var marker_d91e8157d16b7ddf69550154ddffc02f = L.marker(
                 [39.8056, -104.8931],
                 {
 }
-            ).addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            ).addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var div_icon_327e00259349c783a7062edd13b14e99 = L.divIcon({
+            var div_icon_a766283890e77f7fb51aab13e6a921f9 = L.divIcon({
   "html": "\n        \u003csvg width=\"19\" height=\"19\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"9\" cy=\"9\" r=\"7\" fill=\"#7a0019\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \n        \u003c/svg\u003e\n        ",
   "iconSize": [19, 19],
   "iconAnchor": [9, 9],
@@ -1009,24 +1017,24 @@
 });
         
     
-        var popup_cfd3b6fce096f07f987deb9ba9baaf98 = L.popup({
+        var popup_510623b9eefbccace5ac1708da83f388 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_95c2e215da500eb26ace685b43394b57 = $(`<div id="html_95c2e215da500eb26ace685b43394b57" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #7a0019;">Colorado Rapids</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Dick's Sporting Goods Park</p>                 <p style="margin: 3px 0;"><b>Location:</b> Commerce City, CO</p>                 <p style="margin: 3px 0;"><b>Population:</b> 8.91M</p>             </div>             </div>`)[0];
-                popup_cfd3b6fce096f07f987deb9ba9baaf98.setContent(html_95c2e215da500eb26ace685b43394b57);
+                var html_70b32729cce10c2646ae32e91165509f = $(`<div id="html_70b32729cce10c2646ae32e91165509f" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #7a0019;">Colorado Rapids</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Dick's Sporting Goods Park</p>                 <p style="margin: 3px 0;"><b>Location:</b> Commerce City, CO</p>                 <p style="margin: 3px 0;"><b>Population:</b> 8.91M</p>             </div>             </div>`)[0];
+                popup_510623b9eefbccace5ac1708da83f388.setContent(html_70b32729cce10c2646ae32e91165509f);
             
         
 
-        marker_853e8d87050643cfd3b9e3542c89ab17.bindPopup(popup_cfd3b6fce096f07f987deb9ba9baaf98)
+        marker_d91e8157d16b7ddf69550154ddffc02f.bindPopup(popup_510623b9eefbccace5ac1708da83f388)
         ;
 
         
     
     
-            marker_853e8d87050643cfd3b9e3542c89ab17.bindTooltip(
+            marker_d91e8157d16b7ddf69550154ddffc02f.bindTooltip(
                 `<div>
                      Colorado Rapids (8.91M)
                  </div>`,
@@ -1036,17 +1044,17 @@
             );
         
     
-                marker_853e8d87050643cfd3b9e3542c89ab17.setIcon(div_icon_327e00259349c783a7062edd13b14e99);
+                marker_d91e8157d16b7ddf69550154ddffc02f.setIcon(div_icon_a766283890e77f7fb51aab13e6a921f9);
             
     
-            var marker_03f00bd230dc0d87466b24a480a4a7d3 = L.marker(
+            var marker_aca8fcad649a5cd6b46b7057f906f941 = L.marker(
                 [39.9692, -83.0061],
                 {
 }
-            ).addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            ).addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var div_icon_bb59f54b794677bf372bec27606535c0 = L.divIcon({
+            var div_icon_50b306f236502a6811ddd1e456c3702d = L.divIcon({
   "html": "\n        \u003csvg width=\"31\" height=\"31\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"15\" cy=\"15\" r=\"13\" fill=\"#ffcc00\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \n        \u003c/svg\u003e\n        ",
   "iconSize": [31, 31],
   "iconAnchor": [15, 15],
@@ -1054,24 +1062,24 @@
 });
         
     
-        var popup_b326b8e57e8180d5e39430330d6bf2e7 = L.popup({
+        var popup_b685f1716c644e7482bc0976a93b721e = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_18d3a25e7b34c0e014001168fdbe684e = $(`<div id="html_18d3a25e7b34c0e014001168fdbe684e" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #ffcc00;">Columbus Crew</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Lower.com Field</p>                 <p style="margin: 3px 0;"><b>Location:</b> Columbus, OH</p>                 <p style="margin: 3px 0;"><b>Population:</b> 19.35M</p>             </div>             </div>`)[0];
-                popup_b326b8e57e8180d5e39430330d6bf2e7.setContent(html_18d3a25e7b34c0e014001168fdbe684e);
+                var html_52038d52f019bab9255d242bb0af9615 = $(`<div id="html_52038d52f019bab9255d242bb0af9615" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #ffcc00;">Columbus Crew</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Lower.com Field</p>                 <p style="margin: 3px 0;"><b>Location:</b> Columbus, OH</p>                 <p style="margin: 3px 0;"><b>Population:</b> 19.35M</p>             </div>             </div>`)[0];
+                popup_b685f1716c644e7482bc0976a93b721e.setContent(html_52038d52f019bab9255d242bb0af9615);
             
         
 
-        marker_03f00bd230dc0d87466b24a480a4a7d3.bindPopup(popup_b326b8e57e8180d5e39430330d6bf2e7)
+        marker_aca8fcad649a5cd6b46b7057f906f941.bindPopup(popup_b685f1716c644e7482bc0976a93b721e)
         ;
 
         
     
     
-            marker_03f00bd230dc0d87466b24a480a4a7d3.bindTooltip(
+            marker_aca8fcad649a5cd6b46b7057f906f941.bindTooltip(
                 `<div>
                      Columbus Crew (19.35M)
                  </div>`,
@@ -1081,17 +1089,17 @@
             );
         
     
-                marker_03f00bd230dc0d87466b24a480a4a7d3.setIcon(div_icon_bb59f54b794677bf372bec27606535c0);
+                marker_aca8fcad649a5cd6b46b7057f906f941.setIcon(div_icon_50b306f236502a6811ddd1e456c3702d);
             
     
-            var marker_c68e52bfb945ba8a19dc44a1d40ad4f1 = L.marker(
+            var marker_a122d417fd40a7431933c8d40002255c = L.marker(
                 [38.87, -77.0167],
                 {
 }
-            ).addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            ).addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var div_icon_3cde72486f464948e977bc15f5b4a00d = L.divIcon({
+            var div_icon_52b7398472b97d5b0df55d17fe5a4367 = L.divIcon({
   "html": "\n        \u003csvg width=\"36\" height=\"36\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"18\" cy=\"18\" r=\"16\" fill=\"#ef3e42\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \n        \u003c/svg\u003e\n        ",
   "iconSize": [36, 36],
   "iconAnchor": [18, 18],
@@ -1099,24 +1107,24 @@
 });
         
     
-        var popup_e78312f3317974f9440bd297359ed246 = L.popup({
+        var popup_d811678895b40b957b61829b30c660ee = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_1ba9a7c7bb504597e3efa36dda84747d = $(`<div id="html_1ba9a7c7bb504597e3efa36dda84747d" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #ef3e42;">D.C. United</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Audi Field</p>                 <p style="margin: 3px 0;"><b>Location:</b> Washington, DC</p>                 <p style="margin: 3px 0;"><b>Population:</b> 23.27M</p>             </div>             </div>`)[0];
-                popup_e78312f3317974f9440bd297359ed246.setContent(html_1ba9a7c7bb504597e3efa36dda84747d);
+                var html_1daece781e9afedf5be31d3413d54913 = $(`<div id="html_1daece781e9afedf5be31d3413d54913" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #ef3e42;">D.C. United</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Audi Field</p>                 <p style="margin: 3px 0;"><b>Location:</b> Washington, DC</p>                 <p style="margin: 3px 0;"><b>Population:</b> 23.27M</p>             </div>             </div>`)[0];
+                popup_d811678895b40b957b61829b30c660ee.setContent(html_1daece781e9afedf5be31d3413d54913);
             
         
 
-        marker_c68e52bfb945ba8a19dc44a1d40ad4f1.bindPopup(popup_e78312f3317974f9440bd297359ed246)
+        marker_a122d417fd40a7431933c8d40002255c.bindPopup(popup_d811678895b40b957b61829b30c660ee)
         ;
 
         
     
     
-            marker_c68e52bfb945ba8a19dc44a1d40ad4f1.bindTooltip(
+            marker_a122d417fd40a7431933c8d40002255c.bindTooltip(
                 `<div>
                      D.C. United (23.27M)
                  </div>`,
@@ -1126,17 +1134,17 @@
             );
         
     
-                marker_c68e52bfb945ba8a19dc44a1d40ad4f1.setIcon(div_icon_3cde72486f464948e977bc15f5b4a00d);
+                marker_a122d417fd40a7431933c8d40002255c.setIcon(div_icon_52b7398472b97d5b0df55d17fe5a4367);
             
     
-            var marker_fcf630222a9daee51e0041557ff46481 = L.marker(
+            var marker_b360ddea0b3a65f5184cdf2ecfc81f42 = L.marker(
                 [33.1547, -96.8356],
                 {
 }
-            ).addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            ).addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var div_icon_f8b2729701f5d412f29b16433f93bdd5 = L.divIcon({
+            var div_icon_639860cdb072d2e8674d89eb0ab5b01e = L.divIcon({
   "html": "\n        \u003csvg width=\"29\" height=\"29\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"14\" cy=\"14\" r=\"12\" fill=\"#ae2012\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://logos-world.net/wp-content/uploads/2020/06/FC-Dallas-Logo.png\" x=\"4\" y=\"4\" width=\"20\" height=\"20\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [29, 29],
   "iconAnchor": [14, 14],
@@ -1144,24 +1152,24 @@
 });
         
     
-        var popup_a86f8c97842e3bbb307c5d9f8c579379 = L.popup({
+        var popup_3167d685ce36c5b5886046c7500fea00 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_7d2bbbc7c7298005297c99b5f1034f80 = $(`<div id="html_7d2bbbc7c7298005297c99b5f1034f80" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #ae2012;">FC Dallas</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Toyota Stadium</p>                 <p style="margin: 3px 0;"><b>Location:</b> Frisco, TX</p>                 <p style="margin: 3px 0;"><b>Population:</b> 17.28M</p>             </div>             </div>`)[0];
-                popup_a86f8c97842e3bbb307c5d9f8c579379.setContent(html_7d2bbbc7c7298005297c99b5f1034f80);
+                var html_7927d836eddf0fbadbcbd4c624c3cfd2 = $(`<div id="html_7927d836eddf0fbadbcbd4c624c3cfd2" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #ae2012;">FC Dallas</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Toyota Stadium</p>                 <p style="margin: 3px 0;"><b>Location:</b> Frisco, TX</p>                 <p style="margin: 3px 0;"><b>Population:</b> 17.28M</p>             </div>             </div>`)[0];
+                popup_3167d685ce36c5b5886046c7500fea00.setContent(html_7927d836eddf0fbadbcbd4c624c3cfd2);
             
         
 
-        marker_fcf630222a9daee51e0041557ff46481.bindPopup(popup_a86f8c97842e3bbb307c5d9f8c579379)
+        marker_b360ddea0b3a65f5184cdf2ecfc81f42.bindPopup(popup_3167d685ce36c5b5886046c7500fea00)
         ;
 
         
     
     
-            marker_fcf630222a9daee51e0041557ff46481.bindTooltip(
+            marker_b360ddea0b3a65f5184cdf2ecfc81f42.bindTooltip(
                 `<div>
                      FC Dallas (17.28M)
                  </div>`,
@@ -1171,17 +1179,17 @@
             );
         
     
-                marker_fcf630222a9daee51e0041557ff46481.setIcon(div_icon_f8b2729701f5d412f29b16433f93bdd5);
+                marker_b360ddea0b3a65f5184cdf2ecfc81f42.setIcon(div_icon_639860cdb072d2e8674d89eb0ab5b01e);
             
     
-            var marker_1c88a4ad4785f1e049290d23b57e2233 = L.marker(
+            var marker_20ef10dd34be83f7caf6ffeb35f7da06 = L.marker(
                 [29.7569, -95.3586],
                 {
 }
-            ).addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            ).addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var div_icon_6f75b7ac5e9e1dc1c66f9447ff2d176e = L.divIcon({
+            var div_icon_31a1c7660485273f3b2f806617870fa7 = L.divIcon({
   "html": "\n        \u003csvg width=\"25\" height=\"25\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"12\" cy=\"12\" r=\"10\" fill=\"#e74c3c\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \n        \u003c/svg\u003e\n        ",
   "iconSize": [25, 25],
   "iconAnchor": [12, 12],
@@ -1189,24 +1197,24 @@
 });
         
     
-        var popup_e23f60ec6e8414a870678927b01f750e = L.popup({
+        var popup_713e6f13cd1db1cd0670180a9d2933ca = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_522993a250e7069d2a868f84c0a926e1 = $(`<div id="html_522993a250e7069d2a868f84c0a926e1" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #e74c3c;">Houston Dynamo</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Shell Energy Stadium</p>                 <p style="margin: 3px 0;"><b>Location:</b> Houston, TX</p>                 <p style="margin: 3px 0;"><b>Population:</b> 14.37M</p>             </div>             </div>`)[0];
-                popup_e23f60ec6e8414a870678927b01f750e.setContent(html_522993a250e7069d2a868f84c0a926e1);
+                var html_8fdf4b9edc4d77fade7c88b848baaa3f = $(`<div id="html_8fdf4b9edc4d77fade7c88b848baaa3f" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #e74c3c;">Houston Dynamo</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Shell Energy Stadium</p>                 <p style="margin: 3px 0;"><b>Location:</b> Houston, TX</p>                 <p style="margin: 3px 0;"><b>Population:</b> 14.37M</p>             </div>             </div>`)[0];
+                popup_713e6f13cd1db1cd0670180a9d2933ca.setContent(html_8fdf4b9edc4d77fade7c88b848baaa3f);
             
         
 
-        marker_1c88a4ad4785f1e049290d23b57e2233.bindPopup(popup_e23f60ec6e8414a870678927b01f750e)
+        marker_20ef10dd34be83f7caf6ffeb35f7da06.bindPopup(popup_713e6f13cd1db1cd0670180a9d2933ca)
         ;
 
         
     
     
-            marker_1c88a4ad4785f1e049290d23b57e2233.bindTooltip(
+            marker_20ef10dd34be83f7caf6ffeb35f7da06.bindTooltip(
                 `<div>
                      Houston Dynamo (14.37M)
                  </div>`,
@@ -1216,17 +1224,17 @@
             );
         
     
-                marker_1c88a4ad4785f1e049290d23b57e2233.setIcon(div_icon_6f75b7ac5e9e1dc1c66f9447ff2d176e);
+                marker_20ef10dd34be83f7caf6ffeb35f7da06.setIcon(div_icon_31a1c7660485273f3b2f806617870fa7);
             
     
-            var marker_4824304aac1ab77a4b85ef7171f491f9 = L.marker(
+            var marker_f4deb826c46df3f90214e2f26d09cdb6 = L.marker(
                 [25.9581, -80.2389],
                 {
 }
-            ).addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            ).addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var div_icon_a814c94e1b10820ba19bf137b6c6a937 = L.divIcon({
+            var div_icon_811b77dc63b120dd38cd1ddb468f7a29 = L.divIcon({
   "html": "\n        \u003csvg width=\"18\" height=\"18\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"9\" cy=\"9\" r=\"7\" fill=\"#fa4616\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \n        \u003c/svg\u003e\n        ",
   "iconSize": [18, 18],
   "iconAnchor": [9, 9],
@@ -1234,24 +1242,24 @@
 });
         
     
-        var popup_87ab9444dc00b810e73d0c4cc1cfcea5 = L.popup({
+        var popup_2fe1ffef3872df1f3ccf9f14363a7947 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_c2161759062c1de32d92d4900ee8aa40 = $(`<div id="html_c2161759062c1de32d92d4900ee8aa40" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #fa4616;">Inter Miami CF</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Chase Stadium</p>                 <p style="margin: 3px 0;"><b>Location:</b> Fort Lauderdale, FL</p>                 <p style="margin: 3px 0;"><b>Population:</b> 8.04M</p>             </div>             </div>`)[0];
-                popup_87ab9444dc00b810e73d0c4cc1cfcea5.setContent(html_c2161759062c1de32d92d4900ee8aa40);
+                var html_0c756257ba0392b4bdfe52079ee1452f = $(`<div id="html_0c756257ba0392b4bdfe52079ee1452f" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #fa4616;">Inter Miami CF</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Chase Stadium</p>                 <p style="margin: 3px 0;"><b>Location:</b> Fort Lauderdale, FL</p>                 <p style="margin: 3px 0;"><b>Population:</b> 8.04M</p>             </div>             </div>`)[0];
+                popup_2fe1ffef3872df1f3ccf9f14363a7947.setContent(html_0c756257ba0392b4bdfe52079ee1452f);
             
         
 
-        marker_4824304aac1ab77a4b85ef7171f491f9.bindPopup(popup_87ab9444dc00b810e73d0c4cc1cfcea5)
+        marker_f4deb826c46df3f90214e2f26d09cdb6.bindPopup(popup_2fe1ffef3872df1f3ccf9f14363a7947)
         ;
 
         
     
     
-            marker_4824304aac1ab77a4b85ef7171f491f9.bindTooltip(
+            marker_f4deb826c46df3f90214e2f26d09cdb6.bindTooltip(
                 `<div>
                      Inter Miami CF (8.04M)
                  </div>`,
@@ -1261,17 +1269,17 @@
             );
         
     
-                marker_4824304aac1ab77a4b85ef7171f491f9.setIcon(div_icon_a814c94e1b10820ba19bf137b6c6a937);
+                marker_f4deb826c46df3f90214e2f26d09cdb6.setIcon(div_icon_811b77dc63b120dd38cd1ddb468f7a29);
             
     
-            var marker_362416c6975de8cd0188c38ba987fc18 = L.marker(
+            var marker_d1878f89d1301a6c79fb316a053dbf50 = L.marker(
                 [33.8644, -118.2611],
                 {
 }
-            ).addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            ).addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var div_icon_c8cbfef331d4f8d3f1a4239d420ae3a3 = L.divIcon({
+            var div_icon_79be8db9d18cbdc510f0c47b2c2a7816 = L.divIcon({
   "html": "\n        \u003csvg width=\"27\" height=\"27\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"13\" cy=\"13\" r=\"11\" fill=\"#00245d\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \n        \u003c/svg\u003e\n        ",
   "iconSize": [27, 27],
   "iconAnchor": [13, 13],
@@ -1279,24 +1287,24 @@
 });
         
     
-        var popup_9bd39c64cead2749973690bd793a641a = L.popup({
+        var popup_e94e69714b7b5f6e634aac806b9a6baa = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_82286d14e11351e52e60da50e9180e34 = $(`<div id="html_82286d14e11351e52e60da50e9180e34" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #00245d;">LA Galaxy</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Dignity Health Sports Park</p>                 <p style="margin: 3px 0;"><b>Location:</b> Carson, CA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 15.96M</p>             </div>             </div>`)[0];
-                popup_9bd39c64cead2749973690bd793a641a.setContent(html_82286d14e11351e52e60da50e9180e34);
+                var html_24f6230be830cfdbbb59fe6043468278 = $(`<div id="html_24f6230be830cfdbbb59fe6043468278" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #00245d;">LA Galaxy</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Dignity Health Sports Park</p>                 <p style="margin: 3px 0;"><b>Location:</b> Carson, CA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 15.96M</p>             </div>             </div>`)[0];
+                popup_e94e69714b7b5f6e634aac806b9a6baa.setContent(html_24f6230be830cfdbbb59fe6043468278);
             
         
 
-        marker_362416c6975de8cd0188c38ba987fc18.bindPopup(popup_9bd39c64cead2749973690bd793a641a)
+        marker_d1878f89d1301a6c79fb316a053dbf50.bindPopup(popup_e94e69714b7b5f6e634aac806b9a6baa)
         ;
 
         
     
     
-            marker_362416c6975de8cd0188c38ba987fc18.bindTooltip(
+            marker_d1878f89d1301a6c79fb316a053dbf50.bindTooltip(
                 `<div>
                      LA Galaxy (15.96M)
                  </div>`,
@@ -1306,17 +1314,17 @@
             );
         
     
-                marker_362416c6975de8cd0188c38ba987fc18.setIcon(div_icon_c8cbfef331d4f8d3f1a4239d420ae3a3);
+                marker_d1878f89d1301a6c79fb316a053dbf50.setIcon(div_icon_79be8db9d18cbdc510f0c47b2c2a7816);
             
     
-            var marker_94d1717b47ca1442ab97c3630a93f1bc = L.marker(
+            var marker_670e5211190f3c2e6c6e9f9538d516b3 = L.marker(
                 [34.045, -118.2673],
                 {
 }
-            ).addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            ).addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var div_icon_fc1b0d00801da2c637daa067e3fb8b39 = L.divIcon({
+            var div_icon_489bb40f7ac0c7da63cd70008b38c060 = L.divIcon({
   "html": "\n        \u003csvg width=\"29\" height=\"29\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"14\" cy=\"14\" r=\"12\" fill=\"#000000\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \n        \u003c/svg\u003e\n        ",
   "iconSize": [29, 29],
   "iconAnchor": [14, 14],
@@ -1324,24 +1332,24 @@
 });
         
     
-        var popup_a53febff68c6a976e562a2536b9fd769 = L.popup({
+        var popup_d5ac226b983700fe3ff5d36840ccf6fc = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_8cec09f52ae1b25414506555b49d5778 = $(`<div id="html_8cec09f52ae1b25414506555b49d5778" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #000000;">Los Angeles FC</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> BMO Stadium</p>                 <p style="margin: 3px 0;"><b>Location:</b> Los Angeles, CA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 17.89M</p>             </div>             </div>`)[0];
-                popup_a53febff68c6a976e562a2536b9fd769.setContent(html_8cec09f52ae1b25414506555b49d5778);
+                var html_cdf9c46024cb564cc265b3dae7b25abc = $(`<div id="html_cdf9c46024cb564cc265b3dae7b25abc" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #000000;">Los Angeles FC</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> BMO Stadium</p>                 <p style="margin: 3px 0;"><b>Location:</b> Los Angeles, CA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 17.89M</p>             </div>             </div>`)[0];
+                popup_d5ac226b983700fe3ff5d36840ccf6fc.setContent(html_cdf9c46024cb564cc265b3dae7b25abc);
             
         
 
-        marker_94d1717b47ca1442ab97c3630a93f1bc.bindPopup(popup_a53febff68c6a976e562a2536b9fd769)
+        marker_670e5211190f3c2e6c6e9f9538d516b3.bindPopup(popup_d5ac226b983700fe3ff5d36840ccf6fc)
         ;
 
         
     
     
-            marker_94d1717b47ca1442ab97c3630a93f1bc.bindTooltip(
+            marker_670e5211190f3c2e6c6e9f9538d516b3.bindTooltip(
                 `<div>
                      Los Angeles FC (17.89M)
                  </div>`,
@@ -1351,17 +1359,17 @@
             );
         
     
-                marker_94d1717b47ca1442ab97c3630a93f1bc.setIcon(div_icon_fc1b0d00801da2c637daa067e3fb8b39);
+                marker_670e5211190f3c2e6c6e9f9538d516b3.setIcon(div_icon_489bb40f7ac0c7da63cd70008b38c060);
             
     
-            var marker_7ef4e576e27d740899a5107366bf7f0f = L.marker(
+            var marker_da666be8b1b7b2085f8dd9b99df022da = L.marker(
                 [44.9817, -93.1617],
                 {
 }
-            ).addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            ).addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var div_icon_4d58686fb5d1d2fc8703c00e812407e9 = L.divIcon({
+            var div_icon_599db52ca2dda4668d4cf87337e2ad58 = L.divIcon({
   "html": "\n        \u003csvg width=\"20\" height=\"20\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"10\" cy=\"10\" r=\"8\" fill=\"#00539b\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://logos-world.net/wp-content/uploads/2020/06/Minnesota-United-FC-Logo.png\" x=\"3\" y=\"3\" width=\"14\" height=\"14\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [20, 20],
   "iconAnchor": [10, 10],
@@ -1369,24 +1377,24 @@
 });
         
     
-        var popup_6ebdbd8d652bcc70d4eeee062352e758 = L.popup({
+        var popup_ba16765a53df123e75d908de6a066391 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_ecc6bdf76c8cbfb73fd49674351ef370 = $(`<div id="html_ecc6bdf76c8cbfb73fd49674351ef370" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #00539b;">Minnesota United FC</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Allianz Field</p>                 <p style="margin: 3px 0;"><b>Location:</b> St. Paul, MN</p>                 <p style="margin: 3px 0;"><b>Population:</b> 9.94M</p>             </div>             </div>`)[0];
-                popup_6ebdbd8d652bcc70d4eeee062352e758.setContent(html_ecc6bdf76c8cbfb73fd49674351ef370);
+                var html_85153576c4fd30997cf77a7fea7f57f2 = $(`<div id="html_85153576c4fd30997cf77a7fea7f57f2" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #00539b;">Minnesota United FC</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Allianz Field</p>                 <p style="margin: 3px 0;"><b>Location:</b> St. Paul, MN</p>                 <p style="margin: 3px 0;"><b>Population:</b> 9.94M</p>             </div>             </div>`)[0];
+                popup_ba16765a53df123e75d908de6a066391.setContent(html_85153576c4fd30997cf77a7fea7f57f2);
             
         
 
-        marker_7ef4e576e27d740899a5107366bf7f0f.bindPopup(popup_6ebdbd8d652bcc70d4eeee062352e758)
+        marker_da666be8b1b7b2085f8dd9b99df022da.bindPopup(popup_ba16765a53df123e75d908de6a066391)
         ;
 
         
     
     
-            marker_7ef4e576e27d740899a5107366bf7f0f.bindTooltip(
+            marker_da666be8b1b7b2085f8dd9b99df022da.bindTooltip(
                 `<div>
                      Minnesota United FC (9.94M)
                  </div>`,
@@ -1396,17 +1404,17 @@
             );
         
     
-                marker_7ef4e576e27d740899a5107366bf7f0f.setIcon(div_icon_4d58686fb5d1d2fc8703c00e812407e9);
+                marker_da666be8b1b7b2085f8dd9b99df022da.setIcon(div_icon_599db52ca2dda4668d4cf87337e2ad58);
             
     
-            var marker_fa6a4a24a4fb4edb8c207147d0664f76 = L.marker(
+            var marker_730f9868072dfada3739f8d3910c02f5 = L.marker(
                 [45.5581, -73.5514],
                 {
 }
-            ).addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            ).addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var div_icon_64033b48ed5601ba513f4820ffb11861 = L.divIcon({
+            var div_icon_0e9c5b30451433032d15290054e684bf = L.divIcon({
   "html": "\n        \u003csvg width=\"16\" height=\"16\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"8\" cy=\"8\" r=\"6\" fill=\"#0063b1\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \n        \u003c/svg\u003e\n        ",
   "iconSize": [16, 16],
   "iconAnchor": [8, 8],
@@ -1414,24 +1422,24 @@
 });
         
     
-        var popup_e7cc97a32dc6c4194ed3a9d168a2f9ab = L.popup({
+        var popup_34efef4c3ed3dcd9a5cba83b25157146 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_fd8676ca18ceae2424e0ea61d6f07ce6 = $(`<div id="html_fd8676ca18ceae2424e0ea61d6f07ce6" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #0063b1;">CF Montréal</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Saputo Stadium</p>                 <p style="margin: 3px 0;"><b>Location:</b> Montreal, QC</p>             </div>             </div>`)[0];
-                popup_e7cc97a32dc6c4194ed3a9d168a2f9ab.setContent(html_fd8676ca18ceae2424e0ea61d6f07ce6);
+                var html_15a2a37b388ea141ff56937382d573da = $(`<div id="html_15a2a37b388ea141ff56937382d573da" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #0063b1;">CF Montréal</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Saputo Stadium</p>                 <p style="margin: 3px 0;"><b>Location:</b> Montreal, QC</p>             </div>             </div>`)[0];
+                popup_34efef4c3ed3dcd9a5cba83b25157146.setContent(html_15a2a37b388ea141ff56937382d573da);
             
         
 
-        marker_fa6a4a24a4fb4edb8c207147d0664f76.bindPopup(popup_e7cc97a32dc6c4194ed3a9d168a2f9ab)
+        marker_730f9868072dfada3739f8d3910c02f5.bindPopup(popup_34efef4c3ed3dcd9a5cba83b25157146)
         ;
 
         
     
     
-            marker_fa6a4a24a4fb4edb8c207147d0664f76.bindTooltip(
+            marker_730f9868072dfada3739f8d3910c02f5.bindTooltip(
                 `<div>
                      CF Montréal
                  </div>`,
@@ -1441,17 +1449,17 @@
             );
         
     
-                marker_fa6a4a24a4fb4edb8c207147d0664f76.setIcon(div_icon_64033b48ed5601ba513f4820ffb11861);
+                marker_730f9868072dfada3739f8d3910c02f5.setIcon(div_icon_0e9c5b30451433032d15290054e684bf);
             
     
-            var marker_1f30229c55b93ea399801d2222b0d137 = L.marker(
+            var marker_9e277a8a5533a5d87b1414bc1df0ced4 = L.marker(
                 [42.0909, -71.2643],
                 {
 }
-            ).addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            ).addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var div_icon_0d1f272f8c3b43f1626d38dabe758612 = L.divIcon({
+            var div_icon_33203346316492368d14b61c974c6ba8 = L.divIcon({
   "html": "\n        \u003csvg width=\"23\" height=\"23\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"11\" cy=\"11\" r=\"9\" fill=\"#00205b\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \n        \u003c/svg\u003e\n        ",
   "iconSize": [23, 23],
   "iconAnchor": [11, 11],
@@ -1459,24 +1467,24 @@
 });
         
     
-        var popup_55ed34db6832034d7e9d7d6697ec9811 = L.popup({
+        var popup_8fadeca5ec1b9e77b7bc110baab9ccce = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_db54ddbf7920447e57245a373ed196d5 = $(`<div id="html_db54ddbf7920447e57245a373ed196d5" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #00205b;">New England Revolution</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Gillette Stadium</p>                 <p style="margin: 3px 0;"><b>Location:</b> Foxborough, MA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 12.51M</p>             </div>             </div>`)[0];
-                popup_55ed34db6832034d7e9d7d6697ec9811.setContent(html_db54ddbf7920447e57245a373ed196d5);
+                var html_11fd55ff88afbec7819d9501f05c72ae = $(`<div id="html_11fd55ff88afbec7819d9501f05c72ae" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #00205b;">New England Revolution</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Gillette Stadium</p>                 <p style="margin: 3px 0;"><b>Location:</b> Foxborough, MA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 12.51M</p>             </div>             </div>`)[0];
+                popup_8fadeca5ec1b9e77b7bc110baab9ccce.setContent(html_11fd55ff88afbec7819d9501f05c72ae);
             
         
 
-        marker_1f30229c55b93ea399801d2222b0d137.bindPopup(popup_55ed34db6832034d7e9d7d6697ec9811)
+        marker_9e277a8a5533a5d87b1414bc1df0ced4.bindPopup(popup_8fadeca5ec1b9e77b7bc110baab9ccce)
         ;
 
         
     
     
-            marker_1f30229c55b93ea399801d2222b0d137.bindTooltip(
+            marker_9e277a8a5533a5d87b1414bc1df0ced4.bindTooltip(
                 `<div>
                      New England Revolution (12.51M)
                  </div>`,
@@ -1486,17 +1494,17 @@
             );
         
     
-                marker_1f30229c55b93ea399801d2222b0d137.setIcon(div_icon_0d1f272f8c3b43f1626d38dabe758612);
+                marker_9e277a8a5533a5d87b1414bc1df0ced4.setIcon(div_icon_33203346316492368d14b61c974c6ba8);
             
     
-            var marker_6ebbf34eda163f4fbc024b7af609e77d = L.marker(
+            var marker_e14e619bba9675d8d2dd6ef7c5f22d6c = L.marker(
                 [40.8296, -73.9262],
                 {
 }
-            ).addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            ).addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var div_icon_2c5da4b160287e44cddfb1b442b290b9 = L.divIcon({
+            var div_icon_aaaa6ef8bcf416d417a74e415da07417 = L.divIcon({
   "html": "\n        \u003csvg width=\"24\" height=\"24\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"12\" cy=\"12\" r=\"10\" fill=\"#00539b\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \n        \u003c/svg\u003e\n        ",
   "iconSize": [24, 24],
   "iconAnchor": [12, 12],
@@ -1504,24 +1512,24 @@
 });
         
     
-        var popup_2a28c462810447a1d1290c2f16808862 = L.popup({
+        var popup_f4718e974fa563835484aa5d0092fa5f = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_f93125fbbdc4dfa433b5726285210769 = $(`<div id="html_f93125fbbdc4dfa433b5726285210769" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #00539b;">New York City FC</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Yankee Stadium</p>                 <p style="margin: 3px 0;"><b>Location:</b> Bronx, NY</p>                 <p style="margin: 3px 0;"><b>Population:</b> 12.87M</p>             </div>             </div>`)[0];
-                popup_2a28c462810447a1d1290c2f16808862.setContent(html_f93125fbbdc4dfa433b5726285210769);
+                var html_b69f5668ec2aaa9fe33c2c0e4b14e9f1 = $(`<div id="html_b69f5668ec2aaa9fe33c2c0e4b14e9f1" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #00539b;">New York City FC</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Yankee Stadium</p>                 <p style="margin: 3px 0;"><b>Location:</b> Bronx, NY</p>                 <p style="margin: 3px 0;"><b>Population:</b> 12.87M</p>             </div>             </div>`)[0];
+                popup_f4718e974fa563835484aa5d0092fa5f.setContent(html_b69f5668ec2aaa9fe33c2c0e4b14e9f1);
             
         
 
-        marker_6ebbf34eda163f4fbc024b7af609e77d.bindPopup(popup_2a28c462810447a1d1290c2f16808862)
+        marker_e14e619bba9675d8d2dd6ef7c5f22d6c.bindPopup(popup_f4718e974fa563835484aa5d0092fa5f)
         ;
 
         
     
     
-            marker_6ebbf34eda163f4fbc024b7af609e77d.bindTooltip(
+            marker_e14e619bba9675d8d2dd6ef7c5f22d6c.bindTooltip(
                 `<div>
                      New York City FC (12.87M)
                  </div>`,
@@ -1531,17 +1539,17 @@
             );
         
     
-                marker_6ebbf34eda163f4fbc024b7af609e77d.setIcon(div_icon_2c5da4b160287e44cddfb1b442b290b9);
+                marker_e14e619bba9675d8d2dd6ef7c5f22d6c.setIcon(div_icon_aaaa6ef8bcf416d417a74e415da07417);
             
     
-            var marker_296328ed95ecbe11438861a8904952d6 = L.marker(
+            var marker_a778c0d223be6175ac3648e13dd28447 = L.marker(
                 [40.7372, -74.1508],
                 {
 }
-            ).addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            ).addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var div_icon_cde00c7525a4d86428896ca8a43cbe7c = L.divIcon({
+            var div_icon_27b2f44e955e5f2259728d387e5ab651 = L.divIcon({
   "html": "\n        \u003csvg width=\"24\" height=\"24\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"12\" cy=\"12\" r=\"10\" fill=\"#ed1c24\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://logos-world.net/wp-content/uploads/2020/06/New-York-Red-Bulls-Logo.png\" x=\"4\" y=\"4\" width=\"16\" height=\"16\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [24, 24],
   "iconAnchor": [12, 12],
@@ -1549,24 +1557,24 @@
 });
         
     
-        var popup_a1e4136b51ec358824ede18309e4dbbf = L.popup({
+        var popup_046ce92d62d0867e76f7e2ae1dffe75c = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_710dfdf01f0210ecf56319d542f3ba61 = $(`<div id="html_710dfdf01f0210ecf56319d542f3ba61" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #ed1c24;">New York Red Bulls</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Red Bull Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Harrison, NJ</p>                 <p style="margin: 3px 0;"><b>Population:</b> 12.82M</p>             </div>             </div>`)[0];
-                popup_a1e4136b51ec358824ede18309e4dbbf.setContent(html_710dfdf01f0210ecf56319d542f3ba61);
+                var html_eedbdcab1bd5ca355bc8a99a55507960 = $(`<div id="html_eedbdcab1bd5ca355bc8a99a55507960" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #ed1c24;">New York Red Bulls</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Red Bull Arena</p>                 <p style="margin: 3px 0;"><b>Location:</b> Harrison, NJ</p>                 <p style="margin: 3px 0;"><b>Population:</b> 12.82M</p>             </div>             </div>`)[0];
+                popup_046ce92d62d0867e76f7e2ae1dffe75c.setContent(html_eedbdcab1bd5ca355bc8a99a55507960);
             
         
 
-        marker_296328ed95ecbe11438861a8904952d6.bindPopup(popup_a1e4136b51ec358824ede18309e4dbbf)
+        marker_a778c0d223be6175ac3648e13dd28447.bindPopup(popup_046ce92d62d0867e76f7e2ae1dffe75c)
         ;
 
         
     
     
-            marker_296328ed95ecbe11438861a8904952d6.bindTooltip(
+            marker_a778c0d223be6175ac3648e13dd28447.bindTooltip(
                 `<div>
                      New York Red Bulls (12.82M)
                  </div>`,
@@ -1576,17 +1584,17 @@
             );
         
     
-                marker_296328ed95ecbe11438861a8904952d6.setIcon(div_icon_cde00c7525a4d86428896ca8a43cbe7c);
+                marker_a778c0d223be6175ac3648e13dd28447.setIcon(div_icon_27b2f44e955e5f2259728d387e5ab651);
             
     
-            var marker_db8db40dbfdad035987b526c999ff52b = L.marker(
+            var marker_5792f57718b68f8fda98682e7aedcca2 = L.marker(
                 [28.5414, -81.3892],
                 {
 }
-            ).addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            ).addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var div_icon_bb64e73335ed362d21b5c9c032fdfef2 = L.divIcon({
+            var div_icon_d940ab0354e2dcc75ae2f51b3cf16111 = L.divIcon({
   "html": "\n        \u003csvg width=\"26\" height=\"26\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"13\" cy=\"13\" r=\"11\" fill=\"#3f124d\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \n        \u003c/svg\u003e\n        ",
   "iconSize": [26, 26],
   "iconAnchor": [13, 13],
@@ -1594,24 +1602,24 @@
 });
         
     
-        var popup_c922e047eff8c8ed1c5cf5e01559c06d = L.popup({
+        var popup_62bea4b76c462b162a1df9012a586a93 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_ec17a0432911a55292e7df6fcd3e13c5 = $(`<div id="html_ec17a0432911a55292e7df6fcd3e13c5" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #3f124d;">Orlando City SC</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Inter&Co Stadium</p>                 <p style="margin: 3px 0;"><b>Location:</b> Orlando, FL</p>                 <p style="margin: 3px 0;"><b>Population:</b> 14.57M</p>             </div>             </div>`)[0];
-                popup_c922e047eff8c8ed1c5cf5e01559c06d.setContent(html_ec17a0432911a55292e7df6fcd3e13c5);
+                var html_9435092322bfc5c1edef856b3e2c76d5 = $(`<div id="html_9435092322bfc5c1edef856b3e2c76d5" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #3f124d;">Orlando City SC</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Inter&Co Stadium</p>                 <p style="margin: 3px 0;"><b>Location:</b> Orlando, FL</p>                 <p style="margin: 3px 0;"><b>Population:</b> 14.57M</p>             </div>             </div>`)[0];
+                popup_62bea4b76c462b162a1df9012a586a93.setContent(html_9435092322bfc5c1edef856b3e2c76d5);
             
         
 
-        marker_db8db40dbfdad035987b526c999ff52b.bindPopup(popup_c922e047eff8c8ed1c5cf5e01559c06d)
+        marker_5792f57718b68f8fda98682e7aedcca2.bindPopup(popup_62bea4b76c462b162a1df9012a586a93)
         ;
 
         
     
     
-            marker_db8db40dbfdad035987b526c999ff52b.bindTooltip(
+            marker_5792f57718b68f8fda98682e7aedcca2.bindTooltip(
                 `<div>
                      Orlando City SC (14.57M)
                  </div>`,
@@ -1621,17 +1629,17 @@
             );
         
     
-                marker_db8db40dbfdad035987b526c999ff52b.setIcon(div_icon_bb64e73335ed362d21b5c9c032fdfef2);
+                marker_5792f57718b68f8fda98682e7aedcca2.setIcon(div_icon_d940ab0354e2dcc75ae2f51b3cf16111);
             
     
-            var marker_fbb8bc5564cd0e848b972563ec6fa73c = L.marker(
+            var marker_54e8e5631250b9663a28a43b7985eff4 = L.marker(
                 [39.8306, -75.3781],
                 {
 }
-            ).addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            ).addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var div_icon_7b228b6a660c4af98a3897b666bfab2a = L.divIcon({
+            var div_icon_627e9b697cfcfdc1d19c26b7c3bb646c = L.divIcon({
   "html": "\n        \u003csvg width=\"24\" height=\"24\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"12\" cy=\"12\" r=\"10\" fill=\"#00539b\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \n        \u003c/svg\u003e\n        ",
   "iconSize": [24, 24],
   "iconAnchor": [12, 12],
@@ -1639,24 +1647,24 @@
 });
         
     
-        var popup_a9dc689032bc577d2022488f170c7a90 = L.popup({
+        var popup_056cace344b7cea957beee7e64979eaa = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_e4d4e80938200f91b5650ee80b5ce422 = $(`<div id="html_e4d4e80938200f91b5650ee80b5ce422" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #00539b;">Philadelphia Union</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Subaru Park</p>                 <p style="margin: 3px 0;"><b>Location:</b> Chester, PA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 12.72M</p>             </div>             </div>`)[0];
-                popup_a9dc689032bc577d2022488f170c7a90.setContent(html_e4d4e80938200f91b5650ee80b5ce422);
+                var html_a0cf8ed7e541a9d70d8869b0893f43a2 = $(`<div id="html_a0cf8ed7e541a9d70d8869b0893f43a2" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #00539b;">Philadelphia Union</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Subaru Park</p>                 <p style="margin: 3px 0;"><b>Location:</b> Chester, PA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 12.72M</p>             </div>             </div>`)[0];
+                popup_056cace344b7cea957beee7e64979eaa.setContent(html_a0cf8ed7e541a9d70d8869b0893f43a2);
             
         
 
-        marker_fbb8bc5564cd0e848b972563ec6fa73c.bindPopup(popup_a9dc689032bc577d2022488f170c7a90)
+        marker_54e8e5631250b9663a28a43b7985eff4.bindPopup(popup_056cace344b7cea957beee7e64979eaa)
         ;
 
         
     
     
-            marker_fbb8bc5564cd0e848b972563ec6fa73c.bindTooltip(
+            marker_54e8e5631250b9663a28a43b7985eff4.bindTooltip(
                 `<div>
                      Philadelphia Union (12.72M)
                  </div>`,
@@ -1666,17 +1674,17 @@
             );
         
     
-                marker_fbb8bc5564cd0e848b972563ec6fa73c.setIcon(div_icon_7b228b6a660c4af98a3897b666bfab2a);
+                marker_54e8e5631250b9663a28a43b7985eff4.setIcon(div_icon_627e9b697cfcfdc1d19c26b7c3bb646c);
             
     
-            var marker_0f2e831acdc7ff5904d52fc7e4a7bede = L.marker(
+            var marker_d87d1ae60972cbab0c94ad6f2a92ea78 = L.marker(
                 [45.5236, -122.675],
                 {
 }
-            ).addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            ).addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var div_icon_22a340d7cc94bcae8a707c50c68a550c = L.divIcon({
+            var div_icon_8d3388125712a5413089ac3de9dd3d2e = L.divIcon({
   "html": "\n        \u003csvg width=\"16\" height=\"16\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"8\" cy=\"8\" r=\"6\" fill=\"#006633\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://logos-world.net/wp-content/uploads/2020/06/Portland-Timbers-Logo.png\" x=\"2\" y=\"2\" width=\"11\" height=\"11\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [16, 16],
   "iconAnchor": [8, 8],
@@ -1684,24 +1692,24 @@
 });
         
     
-        var popup_0d5b3bb128804c99388472bc344ef898 = L.popup({
+        var popup_5afdcba66dbc06297b9910d506fba146 = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_5ed79cbf52e1cbcdd2d3c7fc45cea182 = $(`<div id="html_5ed79cbf52e1cbcdd2d3c7fc45cea182" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #006633;">Portland Timbers</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Providence Park</p>                 <p style="margin: 3px 0;"><b>Location:</b> Portland, OR</p>                 <p style="margin: 3px 0;"><b>Population:</b> 5.62M</p>             </div>             </div>`)[0];
-                popup_0d5b3bb128804c99388472bc344ef898.setContent(html_5ed79cbf52e1cbcdd2d3c7fc45cea182);
+                var html_98b65b548f2de56df580d448b7eadfea = $(`<div id="html_98b65b548f2de56df580d448b7eadfea" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #006633;">Portland Timbers</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Providence Park</p>                 <p style="margin: 3px 0;"><b>Location:</b> Portland, OR</p>                 <p style="margin: 3px 0;"><b>Population:</b> 5.62M</p>             </div>             </div>`)[0];
+                popup_5afdcba66dbc06297b9910d506fba146.setContent(html_98b65b548f2de56df580d448b7eadfea);
             
         
 
-        marker_0f2e831acdc7ff5904d52fc7e4a7bede.bindPopup(popup_0d5b3bb128804c99388472bc344ef898)
+        marker_d87d1ae60972cbab0c94ad6f2a92ea78.bindPopup(popup_5afdcba66dbc06297b9910d506fba146)
         ;
 
         
     
     
-            marker_0f2e831acdc7ff5904d52fc7e4a7bede.bindTooltip(
+            marker_d87d1ae60972cbab0c94ad6f2a92ea78.bindTooltip(
                 `<div>
                      Portland Timbers (5.62M)
                  </div>`,
@@ -1711,17 +1719,17 @@
             );
         
     
-                marker_0f2e831acdc7ff5904d52fc7e4a7bede.setIcon(div_icon_22a340d7cc94bcae8a707c50c68a550c);
+                marker_d87d1ae60972cbab0c94ad6f2a92ea78.setIcon(div_icon_8d3388125712a5413089ac3de9dd3d2e);
             
     
-            var marker_bc8efb1946f22f3b502829753aebc1c4 = L.marker(
+            var marker_2dd543bd928fe7f4f346fc5d8912cf95 = L.marker(
                 [40.5825, -111.8922],
                 {
 }
-            ).addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            ).addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var div_icon_ef8db2d483e5d8f4de6be98845a478fc = L.divIcon({
+            var div_icon_6c054aebe6050dc7c5cafb05d41940f7 = L.divIcon({
   "html": "\n        \u003csvg width=\"16\" height=\"16\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"8\" cy=\"8\" r=\"6\" fill=\"#c41230\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://logos-world.net/wp-content/uploads/2020/06/Real-Salt-Lake-Logo.png\" x=\"2\" y=\"2\" width=\"11\" height=\"11\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [16, 16],
   "iconAnchor": [8, 8],
@@ -1729,24 +1737,24 @@
 });
         
     
-        var popup_ee8a48f8be5220111160815ec39c7bb1 = L.popup({
+        var popup_3c45f6f53e21e4af7ac9357f2c8461ce = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_a91fac8eefaf85124781473528a02d5e = $(`<div id="html_a91fac8eefaf85124781473528a02d5e" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #c41230;">Real Salt Lake</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> America First Field</p>                 <p style="margin: 3px 0;"><b>Location:</b> Sandy, UT</p>                 <p style="margin: 3px 0;"><b>Population:</b> 6.11M</p>             </div>             </div>`)[0];
-                popup_ee8a48f8be5220111160815ec39c7bb1.setContent(html_a91fac8eefaf85124781473528a02d5e);
+                var html_c63a7590c3febaa0c845724e8be4e58d = $(`<div id="html_c63a7590c3febaa0c845724e8be4e58d" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #c41230;">Real Salt Lake</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> America First Field</p>                 <p style="margin: 3px 0;"><b>Location:</b> Sandy, UT</p>                 <p style="margin: 3px 0;"><b>Population:</b> 6.11M</p>             </div>             </div>`)[0];
+                popup_3c45f6f53e21e4af7ac9357f2c8461ce.setContent(html_c63a7590c3febaa0c845724e8be4e58d);
             
         
 
-        marker_bc8efb1946f22f3b502829753aebc1c4.bindPopup(popup_ee8a48f8be5220111160815ec39c7bb1)
+        marker_2dd543bd928fe7f4f346fc5d8912cf95.bindPopup(popup_3c45f6f53e21e4af7ac9357f2c8461ce)
         ;
 
         
     
     
-            marker_bc8efb1946f22f3b502829753aebc1c4.bindTooltip(
+            marker_2dd543bd928fe7f4f346fc5d8912cf95.bindTooltip(
                 `<div>
                      Real Salt Lake (6.11M)
                  </div>`,
@@ -1756,17 +1764,17 @@
             );
         
     
-                marker_bc8efb1946f22f3b502829753aebc1c4.setIcon(div_icon_ef8db2d483e5d8f4de6be98845a478fc);
+                marker_2dd543bd928fe7f4f346fc5d8912cf95.setIcon(div_icon_6c054aebe6050dc7c5cafb05d41940f7);
             
     
-            var marker_09f3f77e11d6e57105d78cbdfecc7682 = L.marker(
+            var marker_4f8da780a7e8e7ea602bf79097044e35 = L.marker(
                 [37.3328, -121.9011],
                 {
 }
-            ).addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            ).addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var div_icon_0080ac5d1a83c44c96438221fa01591e = L.divIcon({
+            var div_icon_56c00ab541b33728d864dcca0a741b7c = L.divIcon({
   "html": "\n        \u003csvg width=\"29\" height=\"29\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"14\" cy=\"14\" r=\"12\" fill=\"#0063b1\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://logos-world.net/wp-content/uploads/2020/06/San-Jose-Earthquakes-Logo.png\" x=\"4\" y=\"4\" width=\"20\" height=\"20\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [29, 29],
   "iconAnchor": [14, 14],
@@ -1774,24 +1782,24 @@
 });
         
     
-        var popup_b1a2cdc88083efcb261c0b7347e6c824 = L.popup({
+        var popup_1549c1b5fa9b92e13594a0d5b4afb74f = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_42cf0e73c55159a23e55a143f481dd29 = $(`<div id="html_42cf0e73c55159a23e55a143f481dd29" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #0063b1;">San Jose Earthquakes</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> PayPal Park</p>                 <p style="margin: 3px 0;"><b>Location:</b> San Jose, CA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 17.38M</p>             </div>             </div>`)[0];
-                popup_b1a2cdc88083efcb261c0b7347e6c824.setContent(html_42cf0e73c55159a23e55a143f481dd29);
+                var html_bfe83109e687a0cd5b6901574f8f52ba = $(`<div id="html_bfe83109e687a0cd5b6901574f8f52ba" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #0063b1;">San Jose Earthquakes</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> PayPal Park</p>                 <p style="margin: 3px 0;"><b>Location:</b> San Jose, CA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 17.38M</p>             </div>             </div>`)[0];
+                popup_1549c1b5fa9b92e13594a0d5b4afb74f.setContent(html_bfe83109e687a0cd5b6901574f8f52ba);
             
         
 
-        marker_09f3f77e11d6e57105d78cbdfecc7682.bindPopup(popup_b1a2cdc88083efcb261c0b7347e6c824)
+        marker_4f8da780a7e8e7ea602bf79097044e35.bindPopup(popup_1549c1b5fa9b92e13594a0d5b4afb74f)
         ;
 
         
     
     
-            marker_09f3f77e11d6e57105d78cbdfecc7682.bindTooltip(
+            marker_4f8da780a7e8e7ea602bf79097044e35.bindTooltip(
                 `<div>
                      San Jose Earthquakes (17.38M)
                  </div>`,
@@ -1801,17 +1809,17 @@
             );
         
     
-                marker_09f3f77e11d6e57105d78cbdfecc7682.setIcon(div_icon_0080ac5d1a83c44c96438221fa01591e);
+                marker_4f8da780a7e8e7ea602bf79097044e35.setIcon(div_icon_56c00ab541b33728d864dcca0a741b7c);
             
     
-            var marker_f219d4bebf1e6f2b81ddf9294fe794cc = L.marker(
+            var marker_36e2957b84502898247be0fa6ee123d8 = L.marker(
                 [47.5952, -122.3316],
                 {
 }
-            ).addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            ).addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var div_icon_8ed524969253cf294dd053f8ba92259e = L.divIcon({
+            var div_icon_b86826f19b0330b9c6cecc4c710b6177 = L.divIcon({
   "html": "\n        \u003csvg width=\"18\" height=\"18\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"9\" cy=\"9\" r=\"7\" fill=\"#006331\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://logos-world.net/wp-content/uploads/2020/06/Seattle-Sounders-FC-Logo.png\" x=\"3\" y=\"3\" width=\"12\" height=\"12\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [18, 18],
   "iconAnchor": [9, 9],
@@ -1819,24 +1827,24 @@
 });
         
     
-        var popup_5f22f21fd9cacf06cb0876ba4a088852 = L.popup({
+        var popup_95a0c4aba86ce9ceefb6448b64ef667b = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_919cd7351c3ffe865b3470302308ddaa = $(`<div id="html_919cd7351c3ffe865b3470302308ddaa" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #006331;">Seattle Sounders FC</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Lumen Field</p>                 <p style="margin: 3px 0;"><b>Location:</b> Seattle, WA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 8.18M</p>             </div>             </div>`)[0];
-                popup_5f22f21fd9cacf06cb0876ba4a088852.setContent(html_919cd7351c3ffe865b3470302308ddaa);
+                var html_0f32bfdca4b4b781f7453d992022169c = $(`<div id="html_0f32bfdca4b4b781f7453d992022169c" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #006331;">Seattle Sounders FC</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Lumen Field</p>                 <p style="margin: 3px 0;"><b>Location:</b> Seattle, WA</p>                 <p style="margin: 3px 0;"><b>Population:</b> 8.18M</p>             </div>             </div>`)[0];
+                popup_95a0c4aba86ce9ceefb6448b64ef667b.setContent(html_0f32bfdca4b4b781f7453d992022169c);
             
         
 
-        marker_f219d4bebf1e6f2b81ddf9294fe794cc.bindPopup(popup_5f22f21fd9cacf06cb0876ba4a088852)
+        marker_36e2957b84502898247be0fa6ee123d8.bindPopup(popup_95a0c4aba86ce9ceefb6448b64ef667b)
         ;
 
         
     
     
-            marker_f219d4bebf1e6f2b81ddf9294fe794cc.bindTooltip(
+            marker_36e2957b84502898247be0fa6ee123d8.bindTooltip(
                 `<div>
                      Seattle Sounders FC (8.18M)
                  </div>`,
@@ -1846,17 +1854,17 @@
             );
         
     
-                marker_f219d4bebf1e6f2b81ddf9294fe794cc.setIcon(div_icon_8ed524969253cf294dd053f8ba92259e);
+                marker_36e2957b84502898247be0fa6ee123d8.setIcon(div_icon_b86826f19b0330b9c6cecc4c710b6177);
             
     
-            var marker_60418b2950b81a445a7f7d23033c5836 = L.marker(
+            var marker_9b6bf7bd2b636cebfa02861d01c464f8 = L.marker(
                 [39.1214, -94.8242],
                 {
 }
-            ).addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            ).addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var div_icon_2f388ecd8cd7d7f5ae16f9a914fc9b6e = L.divIcon({
+            var div_icon_23fc182d42ce17791b09b7bb6dd5d19e = L.divIcon({
   "html": "\n        \u003csvg width=\"26\" height=\"26\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"13\" cy=\"13\" r=\"11\" fill=\"#00539b\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://logos-world.net/wp-content/uploads/2020/06/Sporting-Kansas-City-Logo.png\" x=\"4\" y=\"4\" width=\"18\" height=\"18\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [26, 26],
   "iconAnchor": [13, 13],
@@ -1864,24 +1872,24 @@
 });
         
     
-        var popup_5f0d64734e49248a935a4af51b5ce4ab = L.popup({
+        var popup_0cc6cddd6810cece022b67efe29443de = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_5f4cb6b7b0f971968284bac2c54d7b46 = $(`<div id="html_5f4cb6b7b0f971968284bac2c54d7b46" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #00539b;">Sporting Kansas City</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Children's Mercy Park</p>                 <p style="margin: 3px 0;"><b>Location:</b> Kansas City, KS</p>                 <p style="margin: 3px 0;"><b>Population:</b> 14.65M</p>             </div>             </div>`)[0];
-                popup_5f0d64734e49248a935a4af51b5ce4ab.setContent(html_5f4cb6b7b0f971968284bac2c54d7b46);
+                var html_283f1cbc9494c11e9aa0949663e53804 = $(`<div id="html_283f1cbc9494c11e9aa0949663e53804" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #00539b;">Sporting Kansas City</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> Children's Mercy Park</p>                 <p style="margin: 3px 0;"><b>Location:</b> Kansas City, KS</p>                 <p style="margin: 3px 0;"><b>Population:</b> 14.65M</p>             </div>             </div>`)[0];
+                popup_0cc6cddd6810cece022b67efe29443de.setContent(html_283f1cbc9494c11e9aa0949663e53804);
             
         
 
-        marker_60418b2950b81a445a7f7d23033c5836.bindPopup(popup_5f0d64734e49248a935a4af51b5ce4ab)
+        marker_9b6bf7bd2b636cebfa02861d01c464f8.bindPopup(popup_0cc6cddd6810cece022b67efe29443de)
         ;
 
         
     
     
-            marker_60418b2950b81a445a7f7d23033c5836.bindTooltip(
+            marker_9b6bf7bd2b636cebfa02861d01c464f8.bindTooltip(
                 `<div>
                      Sporting Kansas City (14.65M)
                  </div>`,
@@ -1891,17 +1899,17 @@
             );
         
     
-                marker_60418b2950b81a445a7f7d23033c5836.setIcon(div_icon_2f388ecd8cd7d7f5ae16f9a914fc9b6e);
+                marker_9b6bf7bd2b636cebfa02861d01c464f8.setIcon(div_icon_23fc182d42ce17791b09b7bb6dd5d19e);
             
     
-            var marker_d918c5117291e0b2f4101f46a0871550 = L.marker(
+            var marker_e68900406efd79629d9c3dbd3b2bc6c1 = L.marker(
                 [43.6331, -79.4181],
                 {
 }
-            ).addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            ).addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var div_icon_b835b776909dd00ac8136d0dd17030f6 = L.divIcon({
+            var div_icon_8cb4e75359d8af30e71f0870bab6404d = L.divIcon({
   "html": "\n        \u003csvg width=\"16\" height=\"16\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"8\" cy=\"8\" r=\"6\" fill=\"#b81137\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \n        \u003c/svg\u003e\n        ",
   "iconSize": [16, 16],
   "iconAnchor": [8, 8],
@@ -1909,24 +1917,24 @@
 });
         
     
-        var popup_7d7bfbca25135eb2ef512b9989ee0518 = L.popup({
+        var popup_02948185b736e9fde3dc74041e5b297d = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_5d076755e91f1f8e41983840e9153ace = $(`<div id="html_5d076755e91f1f8e41983840e9153ace" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #b81137;">Toronto FC</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> BMO Field</p>                 <p style="margin: 3px 0;"><b>Location:</b> Toronto, ON</p>             </div>             </div>`)[0];
-                popup_7d7bfbca25135eb2ef512b9989ee0518.setContent(html_5d076755e91f1f8e41983840e9153ace);
+                var html_a9cc2e50227f7ce04e9b9fe5e7cc6c54 = $(`<div id="html_a9cc2e50227f7ce04e9b9fe5e7cc6c54" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #b81137;">Toronto FC</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> BMO Field</p>                 <p style="margin: 3px 0;"><b>Location:</b> Toronto, ON</p>             </div>             </div>`)[0];
+                popup_02948185b736e9fde3dc74041e5b297d.setContent(html_a9cc2e50227f7ce04e9b9fe5e7cc6c54);
             
         
 
-        marker_d918c5117291e0b2f4101f46a0871550.bindPopup(popup_7d7bfbca25135eb2ef512b9989ee0518)
+        marker_e68900406efd79629d9c3dbd3b2bc6c1.bindPopup(popup_02948185b736e9fde3dc74041e5b297d)
         ;
 
         
     
     
-            marker_d918c5117291e0b2f4101f46a0871550.bindTooltip(
+            marker_e68900406efd79629d9c3dbd3b2bc6c1.bindTooltip(
                 `<div>
                      Toronto FC
                  </div>`,
@@ -1936,17 +1944,17 @@
             );
         
     
-                marker_d918c5117291e0b2f4101f46a0871550.setIcon(div_icon_b835b776909dd00ac8136d0dd17030f6);
+                marker_e68900406efd79629d9c3dbd3b2bc6c1.setIcon(div_icon_8cb4e75359d8af30e71f0870bab6404d);
             
     
-            var marker_efc0e92ed8cdfe955e5da1eaa80bf367 = L.marker(
+            var marker_6a11ee2221e0283a5d028ad95255f444 = L.marker(
                 [49.2769, -123.1089],
                 {
 }
-            ).addTo(map_2c30f14c7e4dc9b03c95fea532b1d9bf);
+            ).addTo(map_43ad965fadb4935ea3696a23c115afd9);
         
     
-            var div_icon_c6693dd4e1d3f9341b82cddcdc5586a0 = L.divIcon({
+            var div_icon_c3ef3f1daf592d8b9561d639468a522a = L.divIcon({
   "html": "\n        \u003csvg width=\"16\" height=\"16\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\u003e\n            \u003ccircle cx=\"8\" cy=\"8\" r=\"6\" fill=\"#00539b\" stroke=\"black\" stroke-width=\"2\"/\u003e\n            \u003cimage href=\"https://logos-world.net/wp-content/uploads/2020/06/Vancouver-Whitecaps-FC-Logo.png\" x=\"2\" y=\"2\" width=\"11\" height=\"11\" opacity=\"0.95\"/\u003e\n        \u003c/svg\u003e\n        ",
   "iconSize": [16, 16],
   "iconAnchor": [8, 8],
@@ -1954,24 +1962,24 @@
 });
         
     
-        var popup_4094993952a05a711d6f39caf6c9577c = L.popup({
+        var popup_4146bda2f3690101dbdc3137a7e79f1e = L.popup({
   "maxWidth": 250,
 });
 
         
             
-                var html_ac5248a7ef161e76f13405dba4a1a68d = $(`<div id="html_ac5248a7ef161e76f13405dba4a1a68d" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #00539b;">Vancouver Whitecaps FC</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> BC Place</p>                 <p style="margin: 3px 0;"><b>Location:</b> Vancouver, BC</p>             </div>             </div>`)[0];
-                popup_4094993952a05a711d6f39caf6c9577c.setContent(html_ac5248a7ef161e76f13405dba4a1a68d);
+                var html_6b7fb4a5db641c05f6af6cfff18691fc = $(`<div id="html_6b7fb4a5db641c05f6af6cfff18691fc" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial, sans-serif; width: 200px;">                 <h3 style="margin: 5px 0; color: #00539b;">Vancouver Whitecaps FC</h3>                 <hr style="margin: 5px 0;">                 <p style="margin: 3px 0;"><b>Venue:</b> BC Place</p>                 <p style="margin: 3px 0;"><b>Location:</b> Vancouver, BC</p>             </div>             </div>`)[0];
+                popup_4146bda2f3690101dbdc3137a7e79f1e.setContent(html_6b7fb4a5db641c05f6af6cfff18691fc);
             
         
 
-        marker_efc0e92ed8cdfe955e5da1eaa80bf367.bindPopup(popup_4094993952a05a711d6f39caf6c9577c)
+        marker_6a11ee2221e0283a5d028ad95255f444.bindPopup(popup_4146bda2f3690101dbdc3137a7e79f1e)
         ;
 
         
     
     
-            marker_efc0e92ed8cdfe955e5da1eaa80bf367.bindTooltip(
+            marker_6a11ee2221e0283a5d028ad95255f444.bindTooltip(
                 `<div>
                      Vancouver Whitecaps FC
                  </div>`,
@@ -1981,7 +1989,7 @@
             );
         
     
-                marker_efc0e92ed8cdfe955e5da1eaa80bf367.setIcon(div_icon_c6693dd4e1d3f9341b82cddcdc5586a0);
+                marker_6a11ee2221e0283a5d028ad95255f444.setIcon(div_icon_c3ef3f1daf592d8b9561d639468a522a);
             
 </script>
 </html>
